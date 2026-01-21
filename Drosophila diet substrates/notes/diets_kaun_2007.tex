@@ -1,0 +1,176 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+
+\title{Diets Used in Kaun et al. (2007):\\DEB-Consistent Formulation}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+This note extracts and formalizes the larval diets used in Kaun et al. (2007) and translates them into DEB-consistent substrate descriptions, ending with a single derived quantity---the environmental energy density of food $\varepsilon_X$ (J\,cm$^{-3}$)---that can be used to parameterize functional response and assimilation in DEB models.
+
+Throughout, we explicitly separate
+\begin{itemize}
+  \item the DEB \emph{food density} $X$ (substrate density, e.g. C-mol\,cm$^{-3}$),
+  \item the \emph{chemical potential} $\mu_X$ (J\,C-mol$^{-1}$), and
+  \item the derived \emph{environmental energy density}
+  \begin{equation}
+    \varepsilon_X \equiv \mu_X X, \qquad [\varepsilon_X] = \mathrm{J\,cm^{-3}}.
+  \end{equation}
+\end{itemize}
+
+This quantity is not a new DEB state variable; it is a defined product that is useful when food recipes are given by mass or molarity.
+
+\section{Diets detected in Kaun et al. (2007)}
+
+Kaun et al. use three classes of larval food substrates, depending on the experiment:
+\begin{enumerate}
+  \item standard rearing medium (yeast--sucrose--agar), sometimes diluted (100\%, 75\%, 50\%, 25\%, 15\%),
+  \item yeast paste (used in feeding and absorption assays), and
+  \item defined sugar--agarose substrates (glucose--agarose and fructose--agarose).
+\end{enumerate}
+
+Only the standard medium and yeast paste are nutritionally complete. The sugar--agarose substrates are single-compound carbon sources, used to probe feeding behaviour rather than growth.
+
+\section{Notational conventions (important)}
+
+To avoid confusion, we enforce the following conventions:
+\begin{itemize}
+  \item $X$: DEB food density (substrate), units chosen consistently with $K$ (e.g. C-mol\,cm$^{-3}$),
+  \item $\mu_X$: chemical potential of food (J\,C-mol$^{-1}$),
+  \item $\varepsilon_X = \mu_X X$: energy per volume of substrate (J\,cm$^{-3}$).
+\end{itemize}
+
+When the paper specifies recipes in g\,L$^{-1}$ or mol\,L$^{-1}$, we first compute $\varepsilon_X$ via mass concentrations, using
+\begin{equation}
+  \varepsilon_X = \sum_i \rho_i e_i,
+\end{equation}
+where $\rho_i$ is the mass concentration of ingredient $i$ (g\,cm$^{-3}$) and $e_i$ is the gross energy content of ingredient $i$ (J\,g$^{-1}$). Conversion to $X$ (e.g. C-mol\,cm$^{-3}$) can be done later if needed.
+
+\section{Diet 1: Standard rearing medium}
+
+\subsection{Composition (per litre of water)}
+
+A typical standard medium recipe is summarised in Table~\ref{tab:standard-composition}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Component & Amount (g\,L$^{-1}$) & Role \\
+\midrule
+Baker's yeast & 50 & protein, lipid, carbohydrate \\
+Sucrose & 100 & carbohydrate \\
+Agar & 16 & gelling agent (non-assimilable) \\
+KPO$_4$ & 0.1 & mineral \\
+NaK-tartrate & 8 & mineral \\
+NaCl & 0.5 & mineral \\
+MgCl$_2$ & 0.5 & mineral \\
+Fe$_2$(SO$_4$)$_3$ & 0.5 & mineral \\
+Water & balance & solvent \\
+\bottomrule
+\end{tabular}
+\caption{Composition of the standard larval medium per litre of water in Kaun et al. (2007). Only yeast and sucrose contribute significantly to assimilable energy.}
+\label{tab:standard-composition}
+\end{table}
+
+Food quality manipulations (25\%, 15\%, etc.) scale yeast and sucrose together.
+
+\subsection{Energy density of the standard medium}
+
+Assume an aqueous gel with bulk density $\rho_{\text{medium}} \approx 1\,\mathrm{g\,cm^{-3}}$ and negligible assimilable energy from agar. Take typical energy per mass values
+\begin{align}
+  e_Y &\approx 21\times10^{3}\,\mathrm{J\,g^{-1}} && \text{(yeast)},\\
+  e_S &\approx 16.5\times10^{3}\,\mathrm{J\,g^{-1}} && \text{(sucrose)}.
+\end{align}
+
+Energy per litre from yeast and sucrose is then
+\begin{align}
+  E_{\text{yeast}} &= 50\times 21 = 1050\,\mathrm{kJ},\\
+  E_{\text{sucrose}} &= 100\times 16.5 = 1650\,\mathrm{kJ},\\
+  E_{\text{total}} &= 2700\,\mathrm{kJ\,L^{-1}}.
+\end{align}
+
+Thus the energy density of the standard medium is
+\begin{equation}
+  \varepsilon_X^{\text{standard}} = \frac{2.7\times10^{6}}{1000} \approx 2.7\times10^{3}\,\mathrm{J\,cm^{-3}}.
+\end{equation}
+
+For diluted food with quality factor $q$ (e.g. 0.75, 0.50, 0.25, 0.15),
+\begin{equation}
+  \varepsilon_X(q) = q\,\varepsilon_X^{\text{standard}}.
+\end{equation}
+
+\section{Diet 2: Yeast paste}
+
+\subsection{Composition}
+
+The yeast paste is prepared as 2:1 water:yeast (w/w). The mass fraction of yeast is
+\begin{equation}
+  w_Y = \frac{1}{3}.
+\end{equation}
+Assuming slurry density $\approx 1\,\mathrm{g\,cm^{-3}}$, the yeast mass concentration is
+\begin{equation}
+  \rho_Y = w_Y\,\rho_{\text{paste}} = 0.333\,\mathrm{g\,cm^{-3}}.
+\end{equation}
+
+\subsection{Energy density}
+
+With yeast energy per mass $e_Y = 21\times10^{3}\,\mathrm{J\,g^{-1}}$ we obtain
+\begin{equation}
+  \varepsilon_{X,\text{yeast paste}} = \rho_Y e_Y = 0.333\times 21\times10^{3} \approx 7.0\times10^{3}\,\mathrm{J\,cm^{-3}}.
+\end{equation}
+
+Unit check: $\mathrm{g\,cm^{-3}}\times \mathrm{J\,g^{-1}} = \mathrm{J\,cm^{-3}}$.
+
+\section{Diet 3: Sugar--agarose substrates}
+
+These substrates are not nutritionally complete and should be treated as single-compound DEB foods.
+
+\subsection{Glucose--agarose}
+
+Recipe: 10\% glucose (w/v), 2.3\% agarose. The glucose mass concentration is
+\begin{equation}
+  \rho_G = 0.10\,\mathrm{g\,cm^{-3}}.
+\end{equation}
+With glucose energy per mass $e_G = 15.6\times10^{3}\,\mathrm{J\,g^{-1}}$,
+\begin{equation}
+  \varepsilon_{X,\text{glucose}} = \rho_G e_G = 0.10\times 15.6\times10^{3} = 1.56\times10^{3}\,\mathrm{J\,cm^{-3}}.
+\end{equation}
+
+\subsection{Fructose--agarose}
+
+Recipe: 2 mol\,L$^{-1}$ fructose, 1\% agarose. With fructose molar mass $M_F = 180\,\mathrm{g\,mol^{-1}}$, the mass concentration is
+\begin{equation}
+  \rho_F = \frac{2\times 180}{1000} = 0.36\,\mathrm{g\,cm^{-3}}.
+\end{equation}
+With carbohydrate energy per mass $e_F \approx 15.6\times10^{3}\,\mathrm{J\,g^{-1}}$,
+\begin{equation}
+  \varepsilon_{X,\text{fructose}} = 0.36\times 15.6\times10^{3} \approx 5.6\times10^{3}\,\mathrm{J\,cm^{-3}}.
+\end{equation}
+
+\section{Summary: single food energy densities}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Diet & $\varepsilon_X$ (J\,cm$^{-3}$) & Notes \\
+\midrule
+Standard medium (100\%) & $2.7\times10^{3}$ & complete diet \\
+Standard medium (quality $q$) & $q\times 2.7\times10^{3}$ & dilution series \\
+Yeast paste & $7.0\times10^{3}$ & high-quality reference \\
+Glucose--agarose & $1.56\times10^{3}$ & carbon-only test \\
+Fructose--agarose & $5.6\times10^{3}$ & carbon-only test \\
+\bottomrule
+\end{tabular}
+\caption{Summary of energy densities for Kaun et al. larval diets.}
+\label{tab:summary}
+\end{table}
+
+\end{document}

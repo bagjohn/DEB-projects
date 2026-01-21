@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+
+\title{Quantized Assimilation and Larval Feeding Rhythms\\
+\large A DEB-consistent formulation with empirical grounding}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+This note formalizes a \textbf{bite-quantized} representation of feeding that is \textit{consistent with standard DEB flux notation}: we keep the usual continuous DEB assimilation power \(\dot p_A\) but represent it as a train of identical intake events ("bites", "sips", "mouthfuls").
+\subsubsection*{Start agnostically: define bite volume and food concentration}
+
+Let a single bite remove a \textbf{fixed volume} of food medium, denoted by \(V_{\text{bite}}\) (the \textit{bite volume}, with units \([\mathrm{cm^3\,bite^{-1}}]\)).
+
+Let the food in the medium be described as a DEB substrate concentration \(X\) (\textit{food concentration in medium}, \([\mathrm{Cmol\,cm^{-3}}]\)).
+
+Then the amount of food (in C-moles) per bite is
+
+\begin{equation}
+\Delta X_{\text{bite}} = X\,V_{\text{bite}}
+\qquad [\mathrm{Cmol\,bite^{-1}}].
+\end{equation}
+\subsubsection*{Reach energy per bite via chemical potential}
+
+Let \(\mu_X\) denote the \textit{chemical potential of food} \([\mathrm{J\,Cmol^{-1}}]\).
+
+Then the \textbf{energy content of one bite} is
+
+\begin{equation}
+E_{\text{bite}} = \mu_X\,\Delta X_{\text{bite}}
+= \mu_X\,X\,V_{\text{bite}}
+\qquad [\mathrm{J\,bite^{-1}}].
+\end{equation}
+
+\subsubsection*{Define a bite frequency and derive it from DEB assimilation}
+
+Let \(N(t)\) be the cumulative number of bites. Define the \textbf{feeding/bite frequency} as
+\(f_{\text{feed}}(t) \equiv \dot N(t)\) with units \([\mathrm{bite\,time^{-1}}]\) (e.g. \([\mathrm{s^{-1}}]\) or \([\mathrm{d^{-1}}]\)).
+
+DEB gives a continuous \textbf{assimilation power} \(\dot p_A(t)\) with units \([\mathrm{J\,time^{-1}}]\).
+
+Quantization assumption: total assimilation is the sum of bite energies per time:
+
+\begin{equation}
+\dot p_A(t) = f_{\text{feed}}(t)\,E_{\text{bite}}(t).
+\end{equation}
+
+Therefore, the bite frequency is
+
+\begin{equation}
+\boxed{
+f_{\text{feed}}(t)
+=
+\frac{\dot p_A(t)}{E_{\text{bite}}(t)}
+=
+\frac{\dot p_A(t)}{\mu_X\,X(t)\,V_{\text{bite}}(t)}
+}
+\qquad [\mathrm{bite\,time^{-1}}].
+\end{equation}
+
+\paragraph{Deterministic vs stochastic bites (optional)}
+In a \textbf{deterministic} representation, \(N(t)\) increases smoothly with \(\dot N=f_{\text{feed}}\). In a more \textbf{stochastic} and often realistic view, bites arrive as a Poisson process with intensity \(\lambda(t)=f_{\text{feed}}(t)\); the mean still satisfies \(\mathbb{E}[\dot p_A]=\lambda E_{\text{bite}}\).
+
+\subsubsection*{Substitute a standard DEB expression for \(\dot p_A\)}
+
+A common DEB form is
+
+\begin{equation}
+\dot p_A(t) = f(t)\,\{\dot p_{Am}\}\,S_A(t),
+\end{equation}
+
+where \(f(t)\) is the functional response (0–1), \(\{\dot p_{Am}\}\) is the max surface-area specific assimilation \([\mathrm{J\,time^{-1}\,cm^{-2}}]\), and \(S_A(t)\) is the assimilation surface area \([\mathrm{cm^2}]\).
+
+Then
+
+\begin{equation}
+\boxed{
+f_{\text{feed}}(t)
+=
+\frac{f(t)\,\{\dot p_{Am}\}\,S_A(t)}{\mu_X\,X(t)\,V_{\text{bite}}(t)}
+}.
+\end{equation}
+
+This is the key bridge: DEB determines \(\dot p_A\), bite energetics determines \(E_{\text{bite}}\), and their ratio determines \(f_{\text{feed}}\).
+
+\subsubsection*{Adopt the rod-shape isomorph choice (shape correction included)}
+
+For your \textbf{rod-shaped isomorph} with a \textbf{shape correction} \(\delta_M\), a convenient mapping is to retain DEB’s length-based scaling but correct for shape. The structural volume is
+\begin{equation}
+V(t) = (\delta_M L(t))^3
+\qquad [\mathrm{cm^3}]
+\end{equation}
+
+and the assimilation area (surface scaling) is
+\begin{equation}
+S_A(t) = (\delta_M L(t))^2
+\qquad [\mathrm{cm^2}]
+\end{equation}
+
+and thus
+
+\begin{equation}
+\dot p_A(t) = f(t)\,\{\dot p_{Am}\}\,(\delta_M L(t))^2.
+\end{equation}
+
+So the bite frequency becomes
+
+\begin{equation}
+\boxed{
+f_{\text{feed}}(t)
+=
+\frac{f(t)\,\{\dot p_{Am}\}\,(\delta_M L(t))^2}{\mu_X\,X(t)\,V_{\text{bite}}(t)}
+}.
+\end{equation}
+
+\begin{quote}
+Note: if you later choose to use an explicit rod lateral area formula (rather than the \((\delta_M L)^2\) isomorph mapping), you can swap \(S_A(t)\) accordingly without changing the rest of the derivation.
+\end{quote}
+\subsubsection*{The open modeling choice: how should \(V_{\text{bite}}\) scale with size?}
+
+At this point, the only missing ingredient is a \textbf{growth-dependent} bite volume \(V_{\text{bite}}(t)\), i.e. \(V_{\text{bite}}(L)\). A general family with \(\kappa_{bite}\) the coefficient setting the bite magnitude per bite and \(k\) the bite-volume scaling exponent:
+
+\begin{equation}
+V_{\text{bite}}(L) = \kappa_{bite}\,L^{k}
+\qquad [\mathrm{cm^3\,bite^{-1}}],
+\end{equation}
+
+
+Two principled options correspond to \textbf{area vs volume} scaling, with specific choices of the exponent:
+
+\paragraph{(A) Volume-scaled bites: \(k=3\)}
+\begin{equation}
+V_{\text{bite}}(L)=\kappa_{bite,V}\,V(L),
+\end{equation}
+where \(V(L)\) is structural volume (for an isomorph, typically \(V(L)\propto L^3\)).
+
+\textbf{Consequence (for fixed \(X\), \(f\)):}
+\begin{equation}
+f_{\text{feed}} \propto \frac{L^2}{L^3} \propto L^{-1}.
+\end{equation}
+Larger juveniles take fewer bites per time, but each bite is larger.
+
+\emph{Interpretation: if you want each bite to represent a roughly fixed fraction of body (structural) volume, choose this volume-scaling option with prefactor \(\kappa_{bite,V}\) and exponent \(k=3\).}
+
+\paragraph{(B) Area-scaled bites: \(k=2\)}
+\begin{equation}
+V_{\text{bite}}(L)=\kappa_{bite,S}\,L^2.
+\end{equation}
+
+\textbf{Consequence (for fixed \(X\), \(f\)):}
+\begin{equation}
+f_{\text{feed}} \propto \frac{L^2}{L^2} \propto L^{0},
+\end{equation}
+so bite frequency tends to remain approximately constant over growth (a “feeding rhythm” interpretation).
+\emph{Interpretation: if you want a roughly constant feeding rhythm across growth, choose this area-scaling option with prefactor \(\kappa_{bite,S}\) and exponent \(k=2\).}
+\newpage
+\section*{Mouth-hook movement rate across larval development}
+
+This section synthesizes \textbf{modern neuroethological / circuit-based} and \textbf{classical behavioral genetics / developmental} studies relevant to modeling bite / mouth-hook frequency across \textit{Drosophila melanogaster} larval development. Together they delimit what is known, what is measured, and what remains open for DEB-style quantized feeding models.
+
+\paragraph{Modern neuroethological \& circuit-based literature}
+
+\paragraph{Scope}
+Recent studies focus on the \textbf{larval feeding circuit} (brain + subesophageal zone), use \textbf{mouth-hook contractions} as a measurable behavioral output, and examine modulation by \textbf{hunger, neuromodulators, and developmental state} (see also the review by \citet{miroschnikow2020curbio}). These studies usually work with \textbf{late L2 or L3 larvae}, because circuits are mature and behavior is robust.
+
+\paragraph{Key findings}
+Mouth-hook contraction rate emerges as a \textbf{stable, high-frequency rhythmic behavior during active feeding}. Typical reported values cluster around \textbf{150–180 contractions/min} during active feeding on yeast or standard media, and feeding rate \textbf{drops sharply} during the wandering/pre-pupal transition. Developmental comparisons are \textbf{rarely systematic across all instars}, but authors note that rates are lower and more variable in early instars, relatively stable during most of L3, and actively suppressed near pupation.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Stage & Reported rate & Notes & Source \\
+\midrule
+late L2 / early L3 & $\sim 160\text{--}170\,\text{min}^{-1}$ & Active feeding on yeast & \citep{bhatt2013jove} \\
+mid L3 & $\sim 150\text{--}180\,\text{min}^{-1}$ & Depends on hunger state & \citep{schoofs2018jinsphys} \\
+late L3 & $\downarrow$ strongly & Feeding actively suppressed & \citep{melcher2005plosbio} \\
+\bottomrule
+\end{tabular}
+\\[0.5em]
+Table 1: Quantitative anchor values for mouth-hook contraction rates in feeding assays.
+\end{table}
+\paragraph{Classical behavioral genetics \& developmental feeding studies}
+
+Earlier quantitative work explicitly examined \textbf{feeding rate vs larval age}, genetic variation in feeding behavior (e.g. rover/sitter phenotypes), and mouth-hook or cephalopharyngeal retraction counts as a \textit{direct metric}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Developmental phase & Feeding rate trend & Interpretation & Source \\
+\midrule
+Early larva (L1) & Low, rising & Small mouthparts, immature circuit & \citep{sewell1974genetres,burnet1977genetres} \\
+L2 & Increasing & Growth acceleration & \citep{sewell1974genetres,burnet1977genetres} \\
+Mid L3 & Plateau & Sustained biomass accumulation & \citep{sewell1974genetres,burnet1977genetres} \\
+Wandering / pre-pupa & Decline & Feeding inhibition precedes metamorphosis & \citep{sewell1974genetres,burnet1977genetres,debelle1987heredity} \\
+\bottomrule
+\end{tabular}
+\\[0.5em]
+Table 2: Developmental changes in larval feeding rate and interpretation.
+\end{table}
+\subsubsection*{Synthesis, implications, and bottom line}
+
+The combined modern and classical literatures agree that mouth-hook contraction rate is a \textbf{valid and widely used proxy} for feeding/bite frequency. Rates are \textbf{developmentally regulated}, not constant across instars: they rise early, plateau during much of L3, and are \textbf{actively suppressed} near pupation, with a \textbf{plateau during most of L3} emerging as a particularly strong empirical feature across studies.
+
+Key gaps remain, including the lack of a \textbf{single standardized dataset} measuring mouth-hook frequency continuously from L1 → L2 → L3 under identical conditions, and the absence of direct, joint measurement of bite \textbf{frequency}, bite \textbf{duration}, and bite \textbf{volume} within the same experiments.
+
+For DEB-style bite quantization, these findings imply that \textbf{constant bite frequency across the full larval period is empirically false}, although within L3 a roughly constant frequency is a reasonable approximation. Growth-related changes in assimilation are therefore most naturally attributed to changes in \textbf{bite volume} and in the \textbf{fraction of time spent feeding}, rather than to unbounded increases in frequency. Mouth-hook frequency can be treated as an \textit{upper bound / rhythm}, with effective feeding rate given by frequency $\times$ bite volume $\times$ feeding duty cycle.
+
+Taken together, these points make bite-quantized DEB models \textit{biologically plausible} and highlight exactly where new data (continuous developmental time series and joint kinematic measurements) would be most informative.
+
+\bibliographystyle{plainnat}
+\bibliography{quantized_assimilation_and_feeding}
+
+\end{document}

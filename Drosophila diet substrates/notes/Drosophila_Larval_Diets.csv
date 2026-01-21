@@ -1,0 +1,5 @@
+Diet Name,Components (g/L),Molecular Weight Basis,C:N:P Ratio,Reference
+Standard Cornmeal-Yeast-Sugar,"Yeast: 50, Sucrose: 50, Cornmeal: 85, Agar: 10",Protein ~16 kDa avg; Sucrose 342 g/mol; Cornmeal: starch (avg ~162 g/mol glucose unit),Approx. 50:10:1 (empirical estimate),"Skorupa et al. (2008), Aging Cell. [PMC2574586](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2574586/)"
+High-Protein (Yeast-Rich),"Yeast: 100, Sucrose: 10, Cornmeal: 50, Agar: 10",Protein ~16 kDa avg; Sucrose 342 g/mol,40:13:2,"Skorupa et al. (2008), Aging Cell. [PMC2574586](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2574586/)"
+High-Carbohydrate (Sugar-Rich),"Yeast: 10, Sucrose: 100, Cornmeal: 50, Agar: 10",Sucrose 342 g/mol; minimal protein,80:4:0.5,"Skorupa et al. (2008), Aging Cell. [PMC2574586](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2574586/)"
+Chemically Defined (Holidic) Diet,"AA mix: 50, Sucrose: 50, Nucleotides, Vitamins, Lipids, Agar",Amino acids (avg ~110 Da); Sucrose 342 g/mol,"Defined per formulation, e.g. 45:9:1","Piper et al. (2014), Cell Metabolism. [DOI:10.1016/j.cmet.2014.06.005]"

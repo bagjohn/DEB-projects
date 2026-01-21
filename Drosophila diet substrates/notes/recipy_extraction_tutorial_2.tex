@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+
+\title{Extracting Diet Recipes and Converting to DEB Inputs\\Kaun et al. (2007) Worked Example}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction and assumptions}
+
+This tutorial shows how to convert experimental diet recipes, given in masses or molarities, into Dynamic Energy Budget (DEB) food descriptors: the food density $X$ (in C-mol\,cm$^{-3}$), the chemical potential of food $\mu_X$ (J\,C-mol$^{-1}$), and the environmental energy density $\varepsilon_X = \mu_X X$ (J\,cm$^{-3}$). All formulas are illustrated with the larval diets used by Kaun et al. (2007).
+
+We assume standard gross energy values for edible ingredients (yeast and sugars):
+\begin{equation}
+  e_Y = 21{,}000\,\mathrm{J\,g^{-1}}, \qquad e_S = 15{,}600\,\mathrm{J\,g^{-1}},
+\end{equation}
+where $e_Y$ is the energy per gram of yeast (mixed macronutrients) and $e_S$ is the energy per gram of sucrose/glucose/fructose used as carbohydrate proxies.
+
+For a compound with empirical formula C$_{n_C}$H$_{n_H}$O$_{n_O}$N$_{n_N}$ we write
+\begin{align}
+  w &= 12 n_C + 1 n_H + 16 n_O + 14 n_N\quad [\mathrm{g\,mol^{-1}}],\\
+  w_C &= \frac{w}{n_C}\quad [\mathrm{g\,C\text{-}mol^{-1}}],
+\end{align}
+so that the chemical potential of ingredient $i$ is
+\begin{equation}
+  \mu_{X,i} = e_i w_{C,i}\quad [\mathrm{J\,C\text{-}mol^{-1}}].
+\end{equation}
+Only edible ingredients (yeast and sugars) contribute to $X$, $\mu_X$ and $\varepsilon_X$; agar and minerals are treated as energetically inert.
+
+\section{From recipe to $\varepsilon_X$, $X$ and $\mu_X$}
+
+Consider a batch of diet of volume $V$ (cm$^3$) containing edible ingredients $i$ with masses $m_i$ (g). The bulk density of the gel or paste is
+\begin{equation}
+  \rho_{\text{bulk}} = \frac{\sum_i m_i}{V},
+\end{equation}
+which is often close to $1\,\mathrm{g\,cm^{-3}}$ for aqueous gels. The mass concentration of ingredient $i$ is
+\begin{equation}
+  \rho_i = \frac{m_i}{V}\quad [\mathrm{g\,cm^{-3}}].
+\end{equation}
+
+The energy density of the food is the sum of energy contributions from edible ingredients:
+\begin{equation}
+  \varepsilon_X = \sum_i \rho_i e_i\quad [\mathrm{J\,cm^{-3}}].
+\end{equation}
+
+If we work explicitly in C-moles, the DEB food density and chemical potential of the mixture are
+\begin{align}
+  X &= \sum_i \frac{\rho_i}{w_{C,i}}\quad [\mathrm{C\text{-}mol\,cm^{-3}}],\\
+  \mu_X &= \frac{\varepsilon_X}{X}\quad [\mathrm{J\,C\text{-}mol^{-1}}].
+\end{align}
+
+If a DEB model instead fixes $\mu_X$ (food quality) in advance, one can omit the explicit mixture calculation and recover the food density from
+\begin{equation}
+  X = \frac{\varepsilon_X}{\mu_X}.
+\end{equation}
+
+\section{Ingredient data for Kaun et al. diets}
+
+Table~\ref{tab:ingredients} summarizes the basic ingredient inputs used by Kaun et al. (2007) for their standard medium, yeast paste, and sugar--agarose test diets, expressed as mass concentrations and associated energetic quantities.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllll}
+\toprule
+Ingredient & Recipe mass per L (g) & $\rho_i$ (g\,cm$^{-3}$) & $e_i$ (J\,g$^{-1}$) & $w_{C,i}$ (g\,C-mol$^{-1}$) & $\mu_{X,i}$ (J\,C-mol$^{-1}$) \\
+\midrule
+Yeast (biomass proxy) & 50 & 0.050 & 21,000 & 24.63 & $5.17\times10^{5}$ \\
+Sucrose & 100 & 0.100 & 15,600 & 28.52 & $4.45\times10^{5}$ \\
+Agar (inert) & 16 & 0.016 & -- & -- & -- \\
+Yeast paste (mass fraction 1/3) & -- & 0.333 & 21,000 & 24.63 & $5.17\times10^{5}$ \\
+Glucose (10\% w/v) & 100 & 0.100 & 15,600 & 30.03 & $4.68\times10^{5}$ \\
+Fructose (2 M) & 360 & 0.360 & 15,600 & 30.03 & $4.68\times10^{5}$ \\
+\bottomrule
+\end{tabular}
+\caption{Ingredient-level inputs for Kaun et al. diets: mass per litre, mass concentration $\rho_i$, gross energy $e_i$, carbon mass per C-mol $w_{C,i}$, and chemical potential $\mu_{X,i}=e_i w_{C,i}$.}
+\label{tab:ingredients}
+\end{table}
+
+\section{Worked results for Kaun et al. diets}
+
+Applying the formulas above to the specific recipes yields the food energy density $\varepsilon_X$, the DEB food density $X$ and the implied chemical potential $\mu_X$ for each diet (assuming all edible components are counted explicitly).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+\toprule
+Diet & Edible $\rho_i$ (g\,cm$^{-3}$) & $\varepsilon_X$ (J\,cm$^{-3}$) & $X$ (C-mol\,cm$^{-3}$) & $\mu_X$ (J\,C-mol$^{-1}$) \\
+\midrule
+Standard medium & $\rho_Y=0.050$, $\rho_S=0.100$ & $2.70\times10^{3}$ & $5.54\times10^{-3}$ & $4.88\times10^{5}$ \\
+Standard medium (quality $q$) & scaled by $q$ & $q\,2.70\times10^{3}$ & $q\,5.54\times10^{-3}$ & $4.88\times10^{5}$ \\
+Yeast paste (2:1 water:yeast) & $\rho_Y\approx0.333$ & $6.99\times10^{3}$ & $1.35\times10^{-2}$ & $5.17\times10^{5}$ \\
+Glucose--agarose (10\% w/v) & $\rho_G=0.100$ & $1.56\times10^{3}$ & $3.33\times10^{-3}$ & $4.68\times10^{5}$ \\
+Fructose--agarose (2 M) & $\rho_F=0.360$ & $5.62\times10^{3}$ & $1.20\times10^{-2}$ & $4.69\times10^{5}$ \\
+\bottomrule
+\end{tabular}
+\caption{Worked DEB-style descriptors for Kaun et al. larval diets: energy density $\varepsilon_X$, food density $X$ and mixture chemical potential $\mu_X$.}
+\label{tab:results}
+\end{table}
+
+In these calculations $\varepsilon_X$ is obtained from $\varepsilon_X = \sum \rho_i e_i$, $X$ from $X = \sum \rho_i / w_{C,i}$ over edible ingredients, and $\mu_X$ as the ratio $\varepsilon_X / X$. Under uniform dilution (scaling all edible $\rho_i$ by the same factor $q$), $\mu_X$ remains constant because both numerator and denominator scale by $q$.
+
+\section{Quick recipe-to-DEB checklist}
+
+For a new paper or recipe, the steps are:
+\begin{enumerate}
+  \item Transcribe ingredient masses per litre (or convert molarities to grams per litre) and identify edible vs inert components.
+  \item Convert masses to mass concentrations $\rho_i$ (g\,cm$^{-3}$) by dividing by $1000$.
+  \item Assign gross energy contents $e_i$ (J\,g$^{-1}$) for each edible ingredient.
+  \item Compute the environmental energy density $\varepsilon_X = \sum_i \rho_i e_i$.
+  \item If needed, compute $X$ and $\mu_X$ using the carbon-based formulation; otherwise, fix $\mu_X$ and set $X = \varepsilon_X/\mu_X$.
+  \item Record all assumptions (densities, $e_i$ sources, edible vs inert decisions, dilution factors $q$).
+\end{enumerate}
+
+\section{Using $\varepsilon_X$ and $X$ in DEB equations}
+
+Once $\varepsilon_X$ and, if needed, $X$ and $\mu_X$ are known, they can be slotted directly into the DEB functional response and assimilation chain. A convenient formulation is
+\begin{equation}
+  \varepsilon_X = \mu_X X, \qquad f = \frac{X}{K+X} = \frac{\varepsilon_X}{\varepsilon_K + \varepsilon_X}, \qquad \varepsilon_K = \mu_X K,
+\end{equation}
+where $K$ is the half-saturation coefficient.
+
+For V1-morphs (volume-proportional uptake), assimilation can be written as
+\begin{equation}
+  \dot p_A = f\,\{\dot p_{Am}\} V,
+\end{equation}
+with structural volume $V$ and maximum volume-specific assimilation parameter $\{\dot p_{Am}\}$. More detailed feeding-rate formulations can express the feeding motion frequency as an explicit function of $\varepsilon_X$, but the core step is always the conversion from recipe to $\varepsilon_X$ and $X$ described above.
+
+\section{Take-home points}
+
+Papers generally specify diets in kitchen units (g, \% w/v, molarity), whereas DEB models require food descriptors in terms of energy and C-moles per volume. The linear recipe-to-DEB mapping
+\begin{equation}
+  (\text{recipe}) \;\Rightarrow\; (\rho_i, e_i) \;\Rightarrow\; \varepsilon_X, X, \mu_X
+\end{equation}
+provides a transparent bridge between the two, making published recipes portable across experiments and simulators.
+
+\end{document}

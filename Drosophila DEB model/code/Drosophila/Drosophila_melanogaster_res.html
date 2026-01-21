@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <TITLE>Drosophila_melanogaster</TITLE>
+  <style>
+    div.prd {
+      width: 50%;
+      float: left;
+    }
+
+    div.par {
+      width: 50%;
+      float: right;
+    }
+
+    p.clear {
+      clear: both;
+    }
+
+    .head {
+      background-color: #FFE7C6
+    }
+
+    .psd {
+      color: blue
+    }
+
+    #prd {
+      border-style: solid hidden solid hidden;
+    }
+
+    #par {
+      border-style: solid hidden solid hidden;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+  </style>
+</HEAD>
+
+<BODY>
+
+  <div class="prd">
+  <h1>Drosophila melanogaster</h1>
+  </div>
+
+  <div class="par">
+  <h4>COMPLETE = 1.0; MRE =    0.454; SMAE =    0.643; SMSE =    0.397 </h4>
+  </div>
+
+  <p class="clear"></p>
+
+  <div class="prd">
+  <h2>Data & predictions</h2>
+  <TABLE id="prd">
+    <TR  class="head"><TH>data</TH> <TH>prd</TH> <TH>RE</TH>  <TH>symbol</TH> <TH>units</TH> <TH>description</TH> </TR>
+    <TR><TD>0.7</TD> <TD>0.9355</TD> <TD>0.3364</TD> <TD>ab</TD> <TD>d</TD> <TD>age at birth</TD></TR>
+    <TR><TD>4.1</TD> <TD>3.022</TD> <TD>0.2628</TD> <TD>tj</TD> <TD>d</TD> <TD>time since birth at pupation</TD></TR>
+    <TR><TD>  5</TD> <TD>0.4781</TD> <TD>0.9044</TD> <TD>te</TD> <TD>d</TD> <TD>time since pupation at emergence</TD></TR>
+    <TR><TD>  1</TD> <TD>0.6616</TD> <TD>0.3384</TD> <TD>t1</TD> <TD>d</TD> <TD>duration of instar 1</TD></TR>
+    <TR><TD>  1</TD> <TD>0.7548</TD> <TD>0.2452</TD> <TD>t2</TD> <TD>d</TD> <TD>duration of instar 2</TD></TR>
+    <TR><TD>2.1</TD> <TD>1.606</TD> <TD>0.2353</TD> <TD>t3</TD> <TD>d</TD> <TD>duration of instar 3</TD></TR>
+    <TR><TD>27.1</TD> <TD>19.33</TD> <TD>0.2869</TD> <TD>am</TD> <TD>d</TD> <TD>life span as imago</TD></TR>
+    <TR><TD>0.06</TD> <TD>0.04452</TD> <TD>0.258</TD> <TD>Lb</TD> <TD>cm</TD> <TD>physical length of young instar 1</TD></TR>
+    <TR><TD>0.13</TD> <TD>0.07376</TD> <TD>0.4326</TD> <TD>L1</TD> <TD>cm</TD> <TD>physical length at end of instar 1</TD></TR>
+    <TR><TD>0.25</TD> <TD>0.1312</TD> <TD>0.4753</TD> <TD>L2</TD> <TD>cm</TD> <TD>physical length at end of instar 2</TD></TR>
+    <TR><TD>0.38</TD> <TD>0.4466</TD> <TD>0.1753</TD> <TD>Lj</TD> <TD>cm</TD> <TD>physical length of pupa</TD></TR>
+    <TR><TD>0.0001</TD> <TD>2.651e-05</TD> <TD>0.7349</TD> <TD>Ww0</TD> <TD>g</TD> <TD>initial wet weight</TD></TR>
+    <TR><TD>0.0013</TD> <TD>0.004334</TD> <TD>2.334</TD> <TD>Wwj</TD> <TD>g</TD> <TD>wet weight of pupa</TD></TR>
+    <TR><TD>0.0011</TD> <TD>0.002903</TD> <TD>1.639</TD> <TD>Wwe</TD> <TD>g</TD> <TD>wet weight of imago</TD></TR>
+    <TR><TD>7.01</TD> <TD>675.2</TD> <TD>95.32</TD> <TD>Ri</TD> <TD>#/d</TD> <TD>maximum reprod rate</TD></TR>
+    <TR><TD>0.01</TD> <TD>0.1037</TD> <TD>9.37</TD> <TD>E0</TD> <TD>J</TD> <TD>initial energy content</TD></TR>
+    <TR><TD colspan="2">see figure</TD> <TD>0.2393</TD> <TD>tWw</TD> <TD colspan="2">time since birth <font color="blue"><i>vs.</i></font> wet weight</TD>
+    <TR class="psd"><TD>0.02</TD> <TD>0.04546</TD> <TD>1.273</TD> <TD>psd.v</TD> <TD>cm/d</TD> <TD>energy conductance</TD></TR>
+    <TR class="psd"><TD> 18</TD> <TD>291.4</TD> <TD>15.19</TD> <TD>psd.p_M</TD> <TD>J/d.cm^3</TD> <TD>vol-spec som maint</TD></TR>
+    <TR class="psd"><TD>0.002</TD> <TD>0.002</TD> <TD>  0</TD> <TD>psd.k_J</TD> <TD>1/d</TD> <TD>maturity maint rate coefficient</TD></TR>
+    <TR class="psd"><TD>0.3</TD> <TD>0.03014</TD> <TD>0.8995</TD> <TD>psd.k</TD> <TD>-</TD> <TD>maintenance ratio</TD></TR>
+    <TR class="psd"><TD>0.8</TD> <TD>0.998</TD> <TD>0.2475</TD> <TD>psd.kap</TD> <TD>-</TD> <TD>allocation fraction to soma</TD></TR>
+    <TR class="psd"><TD>0.8</TD> <TD>0.81</TD> <TD>0.01247</TD> <TD>psd.kap_G</TD> <TD>-</TD> <TD>growth efficiency</TD></TR>
+    <TR class="psd"><TD>0.95</TD> <TD>0.95</TD> <TD>  0</TD> <TD>psd.kap_R</TD> <TD>-</TD> <TD>reproduction efficiency</TD></TR>
+    <TR class="psd"><TD>0.01</TD> <TD>2.378e-10</TD> <TD>  1</TD> <TD>psd.s_s</TD> <TD>-</TD> <TD>supply stress</TD></TR>
+  </TABLE>
+  </div>
+
+  <div class="par">
+  <h2>hex parameters at 20.0&deg;C</h2>
+  <TABLE id="par">
+    <TR class="head"><TH>symbol</TH> <TH>units</TH> <TH>value</TH>  <TH>free</TH> <TH>description</TH> </TR>
+    <TR><TD>T_ref</TD> <TD>K</TD> <TD>293.1</TD> <TD>0</TD> <TD>Reference temperature</TD></TR>
+    <TR><TD>T_A</TD> <TD>K</TD> <TD>8000</TD> <TD>0</TD> <TD>Arrhenius temperature</TD></TR>
+    <TR><TD>z</TD> <TD>-</TD> <TD>1.279</TD> <TD>1</TD> <TD>zoom factor</TD></TR>
+    <TR><TD>F_m</TD> <TD>l/d.cm^2</TD> <TD>6.5</TD> <TD>0</TD> <TD>{F_m}, max spec searching rate</TD></TR>
+    <TR><TD>kap_X</TD> <TD>-</TD> <TD>0.8</TD> <TD>0</TD> <TD>digestion efficiency of food to reserve</TD></TR>
+    <TR><TD>kap_P</TD> <TD>-</TD> <TD>0.18</TD> <TD>0</TD> <TD>faecation efficiency of food to faeces</TD></TR>
+    <TR><TD>v</TD> <TD>cm/d</TD> <TD>0.04546</TD> <TD>1</TD> <TD>energy conductance</TD></TR>
+    <TR><TD>kap</TD> <TD>-</TD> <TD>0.998</TD> <TD>1</TD> <TD>allocation fraction to soma</TD></TR>
+    <TR><TD>kap_R</TD> <TD>-</TD> <TD>0.95</TD> <TD>0</TD> <TD>reproduction efficiency</TD></TR>
+    <TR><TD>kap_V</TD> <TD>-</TD> <TD>1.116e-05</TD> <TD>1</TD> <TD>conversion efficient E -> V -> E</TD></TR>
+    <TR><TD>p_M</TD> <TD>J/d.cm^3</TD> <TD>291.4</TD> <TD>1</TD> <TD>[p_M], vol-spec somatic maint</TD></TR>
+    <TR><TD>p_T</TD> <TD>J/d.cm^2</TD> <TD>  0</TD> <TD>0</TD> <TD>{p_T}, surf-spec somatic maint</TD></TR>
+    <TR><TD>k_J</TD> <TD>1/d</TD> <TD>0.002</TD> <TD>0</TD> <TD>maturity maint rate coefficient</TD></TR>
+    <TR><TD>E_G</TD> <TD>J/cm^3</TD> <TD>4391</TD> <TD>1</TD> <TD>[E_G], spec cost for structure</TD></TR>
+    <TR><TD>E_Hb</TD> <TD>J</TD> <TD>7.286e-05</TD> <TD>1</TD> <TD>maturity at birth</TD></TR>
+    <TR><TD>s_j</TD> <TD>-</TD> <TD>0.999</TD> <TD>0</TD> <TD>reprod buffer/structure at pupation as fraction of max</TD></TR>
+    <TR><TD>E_He</TD> <TD>J</TD> <TD>0.01243</TD> <TD>1</TD> <TD>maturity at emergence</TD></TR>
+    <TR><TD>h_a</TD> <TD>1/d^2</TD> <TD>0.004218</TD> <TD>0</TD> <TD>Weibull aging acceleration</TD></TR>
+    <TR><TD>s_G</TD> <TD>-</TD> <TD>0.0001</TD> <TD>0</TD> <TD>Gompertz stress coefficient</TD></TR>
+    <TR><TD>del_M</TD> <TD>-</TD> <TD>0.4519</TD> <TD>1</TD> <TD>shape coefficient for head capsule of larva</TD></TR>
+    <TR><TD>f</TD> <TD>-</TD> <TD>  1</TD> <TD>0</TD> <TD>scaled functional response for 0-var data</TD></TR>
+    <TR><TD>f_tWw</TD> <TD>-</TD> <TD>  1</TD> <TD>0</TD> <TD>scaled functional response for tWw data</TD></TR>
+    <TR><TD>s_1</TD> <TD>-</TD> <TD>2.744</TD> <TD>1</TD> <TD>stress at instar 1: L_1^2/ L_b^2</TD></TR>
+    <TR><TD>s_2</TD> <TD>-</TD> <TD>3.163</TD> <TD>1</TD> <TD>stress at instar 2: L_2^2/ L_1^2</TD></TR>
+    <TR><TD>s_3</TD> <TD>-</TD> <TD>6.149</TD> <TD>1</TD> <TD>stress at instar 3: L_3^2/ L_2^2</TD></TR>
+    <TR><TD>t_0</TD> <TD>d</TD> <TD>  0</TD> <TD>0</TD> <TD>time at start development</TD></TR>
+    <TR><TD>f_4</TD> <TD>-</TD> <TD>  0</TD> <TD>0</TD> <TD>scaled functional response for instar 3 wondering state</TD></TR>
+    <TR><TD>Ww_4</TD> <TD>mg</TD> <TD>1.925</TD> <TD>0</TD> <TD>critical mass for initializing instar 3 wondering state</TD></TR>
+    <TR><TD>E_Hp</TD> <TD>J</TD> <TD>7.286e-05</TD> <TD>1</TD> <TD>maturity at birth</TD></TR>
+  </TABLE>
+  </div>
+
+</BODY>
+</HTML>

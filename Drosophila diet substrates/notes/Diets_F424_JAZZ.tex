@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\geometry{margin=1in}
+\setstretch{1.1}
+
+\title{F424 and JAZZ Diets --- DEB-Compatible Extraction and Comparison}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+This document consolidates the full pipeline discussed in this thread into a \textbf{single, non-redundant, DEB-ready summary}. It extracts the two experimental diets (\textbf{F424} and \textbf{JAZZ}) from \emph{Ormerod et al. (2017)}, converts them into \textbf{absolute DEB food descriptors}, and summarizes their \textbf{mechanistic differences} in Dynamic Energy Budget (DEB) terms.
+
+\section{Experimental source and context}
+
+\begin{itemize}
+  \item Study: \emph{Drosophila development, physiology, behavior, and lifespan are influenced by altered dietary composition} (Ormerod et al., 2017)
+  \item Organism: \emph{Drosophila melanogaster} (Canton-S)
+  \item Diets compared:
+  \begin{itemize}
+    \item \textbf{Formula 4-24 (F424)} --- Carolina Biological
+    \item \textbf{Jazz-mix (JAZZ)} --- Fisher Scientific
+  \end{itemize}
+  \item Diets used across all life stages, with $\ge 4$ generations of acclimation.
+\end{itemize}
+
+\section{Diet composition and DEB abstraction}
+
+\subsection{Ingredient-level interpretation}
+
+\textbf{Edible (count toward DEB food $X$):}
+\begin{itemize}
+  \item Yeast
+  \item Sugars (sucrose / ``sugar'')
+  \item Starches, maize meal, flours\\
+  $\rightarrow$ pooled into a \textbf{single effective substrate $X$}
+\end{itemize}
+
+\textbf{Inert (excluded from $X$):}
+\begin{itemize}
+  \item Water, agar
+  \item Minerals, ash
+  \item Vitamins, preservatives, acids, colorants
+\end{itemize}
+
+This follows standard DEB practice: only energy-bearing organic matter contributes to food density and energy density.
+
+\section{Quantitative proximate composition (wet mass basis)}
+
+From Table~2 of Ormerod et al. (2017), wet percentages are treated as g~cm$^{-3}$ assuming bulk density $\approx 1$~g~cm$^{-3}$.
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.4]S[table-format=1.4]S[table-format=1.4]}
+    \toprule
+    Diet & {Protein} & {Fat} & {Carbohydrate} \\
+    \midrule
+    \textbf{F424} & 0.0191 & 0.0012 & 0.2119 \\
+    \textbf{JAZZ} & 0.0080 & 0.0001 & 0.1701 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Proximate composition (wet mass basis; g~cm$^{-3}$). Moisture and ash are excluded from DEB food calculations.}
+\end{table}
+
+\section{Assumptions for DEB conversion}
+
+Macronutrient proxies (DEB textbook conventions):
+
+\begin{itemize}
+  \item \textbf{Carbohydrates} (CH$_2$O):
+  \[
+    e = 17.2\ \text{kJ g}^{-1}, \quad w_C = 30.0\ \text{g C-mol}^{-1}
+  \]
+
+  \item \textbf{Proteins} (CH$_{1.61}$O$_{0.33}$N$_{0.28}$):
+  \[
+    e = 17.6\ \text{kJ g}^{-1}, \quad w_C = 22.81\ \text{g C-mol}^{-1}
+  \]
+
+  \item \textbf{Lipids} (CH$_{1.92}$O$_{0.12}$):
+  \[
+    e = 38.9\ \text{kJ g}^{-1}, \quad w_C = 15.84\ \text{g C-mol}^{-1}
+  \]
+\end{itemize}
+
+Mixture formulas:
+\[
+  \varepsilon_X = \sum_i \rho_i e_i
+\]
+\[
+  X = \sum_i \frac{\rho_i}{w_{C,i}}
+\]
+\[
+  \mu_X = \frac{\varepsilon_X}{X}
+\]
+
+\section{Absolute DEB food descriptors}
+
+\subsection{Results}
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e1]S[table-format=1.2e-2]S[table-format=1.2e5]}
+    \toprule
+    Diet & {$\varepsilon_X$ (J~cm$^{-3}$)} & {$X$ (C-mol~cm$^{-3}$)} & {$\mu_X$ (J~C-mol$^{-1}$)} \\
+    \midrule
+    \textbf{F424} & 4.03e3 & 7.98e-3 & 5.05e5 \\
+    \textbf{JAZZ} & 3.07e3 & 6.03e-3 & 5.09e5 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Absolute DEB food descriptors for the two diets.}
+\end{table}
+
+\subsection{Interpretation}
+
+\begin{itemize}
+  \item $\mu_X$ is effectively identical between diets ($\mu_X \approx 5 \times 10^5\ \text{J C-mol}^{-1}$); there is no meaningful difference in intrinsic food quality.
+  \item Differences arise primarily through $X$ and $\varepsilon_X$: F424 is about 30\% more energy-dense per unit volume than JAZZ.
+\end{itemize}
+
+\section{Biological outcome and DEB interpretation}
+
+Empirical results from the paper:
+\begin{itemize}
+  \item Higher ingestion rates on \textbf{JAZZ}
+  \item Faster development, larger size, longer lifespan on \textbf{JAZZ}
+  \item Reduced performance on \textbf{F424}
+\end{itemize}
+
+DEB-level interpretation:
+\begin{itemize}
+  \item \textbf{F424}: higher nominal $\varepsilon_X$, but lower realized intake $\rightarrow$ functionally limiting food.
+  \item \textbf{JAZZ}: lower $\varepsilon_X$, but higher feeding rates $\rightarrow$ higher realized assimilation flux $\dot p_A$.
+\end{itemize}
+
+Thus, the diets differ \textbf{not in food quality ($\mu_X$)}, but in \textbf{effective accessibility and functional response ($f$)}.
+
+\section{DEB-level conclusion}
+
+\begin{quote}
+\textbf{F424 and JAZZ differ primarily in food density and accessibility, not in food quality. F424 is energetically richer per volume, but JAZZ supports a higher functional response and thus a higher realized assimilation flux.}
+\end{quote}
+
+This makes the F424--JAZZ comparison a clean experimental case for separating:
+\begin{itemize}
+  \item food quality ($\mu_X$),
+  \item food density ($X$, $\varepsilon_X$),
+  \item and feeding regulation (behavioral/physiological control of $f$).
+\end{itemize}
+
+\section{Ready-to-use DEB encoding (example)}
+
+\noindent Example in \textsc{Matlab} notation:
+
+\begin{verbatim}
+% Absolute DEB food descriptors
+food.F424.epsX = 4.03e3;   % J/cm^3
+food.F424.X    = 7.98e-3;  % C-mol/cm^3
+food.F424.muX  = 5.05e5;   % J/C-mol
+
+food.JAZZ.epsX = 3.07e3;
+food.JAZZ.X    = 6.03e-3;
+food.JAZZ.muX  = 5.09e5;
+\end{verbatim}
+
+\end{document}

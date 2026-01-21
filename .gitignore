@@ -1,0 +1,14 @@
+# Ignore Google Docs shortcuts (unreadable by Git on Windows)
+*.gdoc
+
+# VS Code settings folder
+.vscode/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+
+# Misc OS files
+desktop.ini

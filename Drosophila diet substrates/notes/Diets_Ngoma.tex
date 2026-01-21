@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\geometry{margin=1in}
+\setstretch{1.1}
+
+\title{Ngoma diets: DEB-compatible extraction and conversion}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Diet extraction and DEB-style conversion for \\ \textbf{Ng'oma et al. (2019)} --- \emph{The evolutionary potential of diet-dependent effects on lifespan and fecundity in a multi-parental population of Drosophila melanogaster}.
+
+\section{Source and scope}
+
+This file extracts the \textbf{adult diets} used in Ng'oma et al. (2019) and converts them into \textbf{Dynamic Energy Budget (DEB)} food descriptors following the standard pipeline:
+\[
+  \text{recipe} \;\rightarrow\; \rho_i \;\rightarrow\; \varepsilon_X,\; X,\; \mu_X
+\]
+
+Diets included:
+\begin{itemize}
+  \item \textbf{DR} --- Dietary restriction
+  \item \textbf{C} --- Control
+  \item \textbf{HS} --- High sugar
+\end{itemize}
+
+The \textbf{maintenance diet} is listed in Table~S1 of the paper but is \textbf{not used} in the lifespan/fecundity experiment and is therefore excluded from DEB calculations here.
+
+\section{Table S1 --- Diet recipes (as reported)}
+
+\subsection*{Table S1. The four diets used in the experiment}
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lcccc}
+    \toprule
+    Ingredient & {Maintenance} & {DR} & {C} & {HS} \\
+    \midrule
+    Water (ml)       & 1066  & 1000 & 1000 & 1000 \\
+    Agar (g)         & 6.25  & 10   & 10   & 10   \\
+    Dextrose (g)     & 86.26 & -    & -    & -    \\
+    Sucrose (g)      & -     & 50   & 50   & 342  \\
+    Molarity         & -     & 0.15 & 0.15 & 1    \\
+    Yeast (g)        & 21.6  & 100  & 200  & 200  \\
+    Cornmeal (g)     & 40.8  & -    & -    & -    \\
+    Tegosept (g)     & 1.8   & 2.7  & 2.7  & 2.7  \\
+    Ethanol (ml)     & 7.3   & 11   & 11   & 11   \\
+    \% Protein       & 10--13 & 36--41 & 45--53 & 17--19 \\
+    \% Carbohydrate  & 93--95 & 59--64 & 47--52 & 81--83 \\
+    \bottomrule
+  \end{tabular}
+  \caption{The four diets used in Ng'oma et al. (2019), as reported in their Table~S1. Protein and carbohydrate percentages are omitted here because the DEB conversion proceeds from the explicit recipe.}
+\end{table}
+
+\section{DEB conversion assumptions}
+
+Following the standard DEB diet-extraction tutorial:
+
+\subsection{Edible vs inert components}
+\begin{itemize}
+  \item \textbf{Edible (counted):}
+  \begin{itemize}
+    \item Yeast
+    \item Sucrose
+  \end{itemize}
+  \item \textbf{Inert (ignored energetically):}
+  \begin{itemize}
+    \item Agar, cornmeal, Tegosept, ethanol, water
+  \end{itemize}
+\end{itemize}
+
+\subsection{Constants}
+\begin{itemize}
+  \item Energy density of yeast:
+  \[
+    e_Y = 21{,}000\ \mathrm{J\ g^{-1}}
+  \]
+  \item Energy density of sugar (sucrose):
+  \[
+    e_S = 15{,}600\ \mathrm{J\ g^{-1}}
+  \]
+  \item Carbon mass per C-mol:
+  \[
+    w_{C,Y} = 24.63\ \mathrm{g\ C\text{-}mol^{-1}},\quad
+    w_{C,S} = 28.52\ \mathrm{g\ C\text{-}mol^{-1}}
+  \]
+  \item Total diet volume:
+  \[
+    V \approx 1\ \mathrm{L} = 1000\ \mathrm{cm^3}
+  \]
+\end{itemize}
+
+\section{Recipe to mass concentrations}
+
+Mass concentrations $\rho_i = m_i / V$.
+
+\subsection{Dietary Restriction (DR)}
+\begin{itemize}
+  \item Yeast: 100 g $\rightarrow$ $\rho_Y = 0.100\ \mathrm{g\ cm^{-3}}$
+  \item Sucrose: 50 g $\rightarrow$ $\rho_S = 0.050\ \mathrm{g\ cm^{-3}}$
+\end{itemize}
+
+\subsection{Control (C)}
+\begin{itemize}
+  \item Yeast: 200 g $\rightarrow$ $\rho_Y = 0.200\ \mathrm{g\ cm^{-3}}$
+  \item Sucrose: 50 g $\rightarrow$ $\rho_S = 0.050\ \mathrm{g\ cm^{-3}}$
+\end{itemize}
+
+\subsection{High Sugar (HS)}
+\begin{itemize}
+  \item Yeast: 200 g $\rightarrow$ $\rho_Y = 0.200\ \mathrm{g\ cm^{-3}}$
+  \item Sucrose: 342 g $\rightarrow$ $\rho_S = 0.342\ \mathrm{g\ cm^{-3}}$
+\end{itemize}
+
+\section{Environmental energy density $\varepsilon_X$}
+
+\[
+  \varepsilon_X = \sum_i \rho_i e_i
+\]
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e1]S[table-format=1.2e1]S[table-format=1.2e1]}
+    \toprule
+    Diet & {Yeast (J~cm$^{-3}$)} & {Sugar (J~cm$^{-3}$)} & {$\varepsilon_X$ total (J~cm$^{-3}$)} \\
+    \midrule
+    DR  & 2.10e3 & 7.80e2 & 2.88e3 \\
+    C   & 4.20e3 & 7.80e2 & 4.98e3 \\
+    HS  & 4.20e3 & 5.34e3 & 9.54e3 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Environmental energy density $\varepsilon_X$ for each diet.}
+\end{table}
+
+\section{DEB food density $X$ (C-mol cm$^{-3}$)}
+
+\[
+  X = \sum_i \frac{\rho_i}{w_{C,i}}
+\]
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e-2]S[table-format=1.2e-2]S[table-format=1.2e-2]}
+    \toprule
+    Diet & {Yeast} & {Sugar} & {$X$ total (C-mol~cm$^{-3}$)} \\
+    \midrule
+    DR  & 4.06e-3 & 1.75e-3 & 5.82e-3 \\
+    C   & 8.12e-3 & 1.75e-3 & 9.87e-3 \\
+    HS  & 8.12e-3 & 1.20e-2 & 2.01e-2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{DEB food density $X$ for each diet.}
+\end{table}
+
+\section{Chemical potential of food $\mu_X$}
+
+\[
+  \mu_X = \frac{\varepsilon_X}{X}
+\]
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e5]}
+    \toprule
+    Diet & {$\mu_X$ (J~C-mol$^{-1}$)} \\
+    \midrule
+    DR  & 4.95e5 \\
+    C   & 5.05e5 \\
+    HS  & 4.75e5 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Chemical potential of food $\mu_X$ for each diet.}
+\end{table}
+
+\section{Final DEB-ready summary}
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e1]S[table-format=1.2e-2]S[table-format=1.2e5]l}
+    \toprule
+    Diet & {$\varepsilon_X$ (J~cm$^{-3}$)} & {$X$ (C-mol~cm$^{-3}$)} & {$\mu_X$ (J~C-mol$^{-1}$)} & Interpretation \\
+    \midrule
+    DR & 2.88e3 & 5.82e-3 & 4.95e5 & Yeast restriction, pure dilution \\
+    C  & 4.98e3 & 9.87e-3 & 5.05e5 & Reference control diet \\
+    HS & 9.54e3 & 2.01e-2 & 4.75e5 & High sugar, lower effective quality \\
+    \bottomrule
+  \end{tabular}
+  \caption{Summary of DEB food descriptors and qualitative interpretation for the Ng'oma diets.}
+\end{table}
+
+\section{DEB interpretation notes}
+
+\subsection*{DR vs C}
+\[
+  X_{\mathrm{DR}} \approx 0.59\,X_{\mathrm{C}},\qquad \mu_X \approx \text{constant}
+\]
+This corresponds to classic \textbf{dietary restriction as food dilution}.
+
+\subsection*{HS vs C}
+\[
+  X_{\mathrm{HS}} \approx 2.0\,X_{\mathrm{C}},\qquad \mu_X \downarrow
+\]
+This is a carbohydrate-heavy diet, explaining reduced lifespan and fecundity despite high energy availability.
+
+These descriptors can be used directly in functional-response formulations:
+\[
+  f = \frac{X}{K + X} = \frac{\varepsilon_X}{\varepsilon_K + \varepsilon_X}.
+\]
+
+\end{document}

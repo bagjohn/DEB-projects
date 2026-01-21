@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{DEB Equations: V1-morph Feeding}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Feeding and V1-morph Implementation}
+
+The equations below follow standard DEB notation: dots indicate rates/fluxes and brackets \([\cdot]\) denote volume-specific quantities.
+
+\subsection{State, environment, and parameters}
+\begin{description}
+	\item[\(X\)] Food density in the environment (mass or C-moles\,L\(^{-1}\))
+	\item[\(X_{\mathrm{in}}\)] Inflow food density, same units as \(X\)
+	\item[\(K\)] Half-saturation constant for feeding (same units as \(X\))
+	\item[\(k_x\)] Exchange/dilution rate of the environment (time\(^{-1}\))
+	\item[\(V\)] Structural volume of the individual (L\(^3\))
+	\item[\(f\)] Scaled functional response (dimensionless)
+	\item[{\([F_m]\)}] Volume-specific maximum clearance/search rate (time\(^{-1}\)) for V1-morphs
+	\item[{\([p_{Am}]\)}] Volume-specific maximum assimilation rate (energy\,L\(^{-3}\)\,time\(^{-1}\))
+	\item[\(\kappa_X\)] Assimilation efficiency on food (dimensionless)
+	\item[\(\mu_X\)] Food energy density/chemical potential (energy\,mol\(^{-1}\))
+	\item[\(\kappa_{\mathrm{bite}}\)] Bite/processing efficiency (dimensionless)
+\end{description}
+
+\subsection{Scaled functional response}
+\[
+	f(X) = \frac{X}{K + X}, \qquad 0 \le f \le 1
+\]
+
+\subsection{Environmental dynamics and clearance (chemostat-like, V1-morph)}
+The chemostat-like food balance is
+\[
+	\dot{X} = k_x\,(X_{\mathrm{in}} - X) - F\,X .
+\]
+For V1-morphs, the individual clearance (feeding) rate scales with structure:
+\[
+	F = f\,[F_m]\,V \quad \text{(L\(^3\)\,time\(^{-1}\))}.
+\]
+Substituting into the chemostat food balance yields
+\[
+	\dot{X} = k_x\,(X_{\mathrm{in}} - X) - f\,[F_m]\,V\,X .
+\]
+
+\subsection{Ingestion flux}
+Multiplying clearance by environmental density gives the ingestion flux (mass or moles per time):
+\[
+	\dot{J}_X = F\,X = f\,[F_m]\,V\,X .
+\]
+
+\subsection{Assimilation flux (optional, V1-morph)}
+In energy units, the assimilation flux can be written as
+\[
+	\dot{p}_A = f\,[p_{Am}]\,V .
+\]
+The corresponding molar feeding flux (before assimilation losses) is
+\[
+	\dot{N}_{\mathrm{feed}} = \frac{\dot{p}_A}{\kappa_X\,\mu_X\,\kappa_{\mathrm{bite}}} = \frac{[p_{Am}]}{\kappa_X\,\mu_X\,\kappa_{\mathrm{bite}}} \frac{X}{K + X}\,V ,
+\]
+which makes the dependence on \(X\), \(K\), and \(\mu_X\) explicit. Using \(K = \frac{[p_{Am}]}{\kappa_{\mathrm{bite}}\,\kappa_X\,\mu_X\,[F_m]}\) from Section~1 yields
+\[
+	\dot{N}_{\mathrm{feed}} = \frac{[p_{Am}]\,[F_m]\,X}{[p_{Am}] + \kappa_{\mathrm{bite}}\,\kappa_X\,\mu_X\,[F_m]\,X}\,V ,
+\]
+so \(\dot{N}_{\mathrm{feed}}\) is expressed entirely in terms of \(\{p_{Am}\}, \{F_m\}, \kappa_X, \mu_X, \kappa_{\mathrm{bite}}\) and the current \(X\).
+
+\end{document}
+

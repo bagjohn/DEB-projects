@@ -1,0 +1,66 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bhatt and Neckameyer(2013)]{bhatt2013jove}
+Parag~K. Bhatt and Wendi~S. Neckameyer.
+\newblock Functional analysis of the larval feeding circuit in {Drosophila}.
+\newblock \emph{Journal of Visualized Experiments}, \penalty0 (81):\penalty0
+  e51062, 2013.
+\newblock \doi{10.3791/51062}.
+\newblock URL \url{https://doi.org/10.3791/51062}.
+
+\bibitem[Burnet et~al.(1977)Burnet, Sewell, and Bos]{burnet1977genetres}
+Barrie Burnet, David Sewell, and Marten Bos.
+\newblock Genetic analysis of larval feeding behaviour in {Drosophila}
+  melanogaster: {II}. growth relations and competition between selected lines.
+\newblock \emph{Genetical Research}, 30\penalty0 (2):\penalty0 149--161, 1977.
+\newblock \doi{10.1017/S0016672300017559}.
+\newblock URL \url{https://doi.org/10.1017/S0016672300017559}.
+
+\bibitem[de~Belle and Sokolowski(1987)]{debelle1987heredity}
+J.~Steven de~Belle and Marla~B. Sokolowski.
+\newblock Heredity of rover/sitter: Alternative foraging strategies of
+  {Drosophila} melanogaster larvae.
+\newblock \emph{Heredity}, 59:\penalty0 73--83, 1987.
+\newblock \doi{10.1038/hdy.1987.98}.
+\newblock URL \url{https://doi.org/10.1038/hdy.1987.98}.
+
+\bibitem[Melcher and Pankratz(2005)]{melcher2005plosbio}
+Christoph Melcher and Michael~J. Pankratz.
+\newblock Candidate gustatory interneurons modulating feeding behavior in the
+  {Drosophila} brain.
+\newblock \emph{PLoS Biology}, 3\penalty0 (9):\penalty0 e305, 2005.
+\newblock \doi{10.1371/journal.pbio.0030305}.
+\newblock URL \url{https://doi.org/10.1371/journal.pbio.0030305}.
+
+\bibitem[Miroschnikow et~al.(2020)Miroschnikow, Schlegel, and
+  Pankratz]{miroschnikow2020curbio}
+Anton Miroschnikow, Philipp Schlegel, and Michael~J. Pankratz.
+\newblock Making feeding decisions in the {Drosophila} nervous system.
+\newblock \emph{Current Biology}, 30\penalty0 (14):\penalty0 R831--R840, 2020.
+\newblock \doi{10.1016/j.cub.2020.06.036}.
+\newblock URL \url{https://doi.org/10.1016/j.cub.2020.06.036}.
+
+\bibitem[Schoofs et~al.(2018)Schoofs, H{\"u}ckesfeld, and
+  Pankratz]{schoofs2018jinsphys}
+Andreas Schoofs, Sebastian H{\"u}ckesfeld, and Michael~J. Pankratz.
+\newblock Serotonergic network in the subesophageal zone modulates the motor
+  pattern for food intake in {Drosophila}.
+\newblock \emph{Journal of Insect Physiology}, 106\penalty0 (Part 1):\penalty0
+  36--46, 2018.
+\newblock \doi{10.1016/j.jinsphys.2017.07.007}.
+\newblock URL \url{https://doi.org/10.1016/j.jinsphys.2017.07.007}.
+
+\bibitem[Sewell et~al.(1974)Sewell, Burnet, and Connolly]{sewell1974genetres}
+D.~Sewell, B.~Burnet, and K.~Connolly.
+\newblock Genetic analysis of larval feeding behaviour in {Drosophila}
+  melanogaster.
+\newblock \emph{Genetical Research}, 24\penalty0 (2):\penalty0 163--173, 1974.
+\newblock \doi{10.1017/S0016672300015196}.
+\newblock URL \url{https://doi.org/10.1017/S0016672300015196}.
+
+\end{thebibliography}
