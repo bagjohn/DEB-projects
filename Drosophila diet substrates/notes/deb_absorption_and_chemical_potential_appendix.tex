@@ -5,168 +5,115 @@
 \usepackage{longtable}
 \usepackage[hidelinks]{hyperref}
 
-\title{Appendix: Chemical Potential and Glucose Absorption\\in Kaun et al. (2007)}
+\title{Appendix: From Tracer Measurements to DEB Parameters\\(Kaun et al., 2007)}
 \author{}
 \date{}
 
 \begin{document}
 \maketitle
 
-This appendix merges and harmonizes material on chemical potential and tracer-based glucose absorption into a single DEB-consistent reference document. It is intended as a methods/appendix section for manuscripts, theses, or model documentation.
+This appendix links the glucose tracer assay in Kaun et al. (2007) to the DEB-consistent quantities used in our diet reconstruction and simulations. Because the paper reports key values graphically, the numeric entries below are digitized from Fig.~3B and are approximate.
 
-\section*{A1. Conceptual separation (DEB notation)}
+\section*{A1. Experimental measurements (source data)}
+Kaun et al. (2007) quantified glucose intake and post-ingestive retention in mid-third instar larvae using a radiolabeled tracer. Larvae fed for 15\,min on dead yeast paste (2:1 water:yeast, w/w) containing 0.08\% Brilliant Blue R dye and $2\,\mu\mathrm{Ci\,ml^{-1}}$ $^{14}$C-6-glucose (specific activity $58\,\mu\mathrm{Ci\,mmol^{-1}}$). After feeding, larvae were transferred to unlabeled medium for 3\,h to clear gut contents; retained $^{14}$C label was quantified by scintillation counting. The paper reports intake and retention in fmol of $^{14}$C-glucose per larva (Fig.~3B).
 
-We distinguish strictly between
-\begin{itemize}
-  \item the \emph{food density} $X$ (substrate density, typically in C-mol\,cm$^{-3}$),
-  \item the \emph{chemical potential of food} $\mu_X$ (energy per C-mol of substrate; J\,C-mol$^{-1}$), and
-  \item the \emph{environmental energy density} $\varepsilon_X$ (derived quantity)
-  \begin{equation}
-    \varepsilon_X \equiv \mu_X X, \qquad [\varepsilon_X] = \mathrm{J\,cm^{-3}}.
-  \end{equation}
-\end{itemize}
+\section*{A2. Diet context and tracer role}
+The tracer is a measurement tool, not an energetic substrate. Because the tracer mass/volume/density is not reported, its energetic contribution is treated as negligible. For DEB energetics we therefore use yeast paste as the sole energy-bearing substrate, with energy density taken from \texttt{diets\_kaun\_2007.tex} (Section~4: Diet 2: Yeast paste). The tracer measurements are used only to infer genotype-specific modifiers of effective assimilation; they do not set absolute food energy.
 
-Only $X$ enters the DEB functional response; $\varepsilon_X$ is a convenient derived quantity when diets are specified by mass or molarity.
-
-\section*{A2. Diet context for tracer experiments}
-
-All $^{14}$C-glucose experiments in Kaun et al. (2007) were conducted on
-\begin{itemize}
-  \item yeast paste (2:1 water:yeast, w/w),
-  \item with $^{14}$C-labelled glucose added as a tracer.
-\end{itemize}
-
-Thus the diet is mixed and nutritionally complete, glucose is not the sole nutrient, and the tracer probes carbohydrate-specific ingestion and retention rather than total feeding or total assimilation.
-
-\section*{A3. Chemical potential used}
-
-For carbohydrates (glucose / fructose), we adopt
+\section*{A3. Digitization and definitions}
+Values in Fig.~3B were digitized from the published plots. We define the post-ingestive retention (absorption) efficiency as
 \begin{equation}
-  \mu_{\mathrm{carb}} = 4.68\times10^{5}\,\mathrm{J\,C\text{-}mol^{-1}}.
+  \eta_{\mathrm{abs}} = \frac{\text{Retention}}{\text{Intake}},
 \end{equation}
-This value is consistent with the energetic densities used elsewhere in the diet reconstruction and allows direct translation between tracer uptake (C-mol) and energy (J).
+where ``Retention'' is the $^{14}$C label remaining after the 3\,h clearing period.
 
-\section*{A4. Extracted $^{14}$C-glucose tracer values}
-
-\subsection*{A4.1 Intake (15 min feeding)}
-
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-Genotype & Intake (fmol glucose\,larva$^{-1}$) \\
-\midrule
-for$^R$ & 600 \\
-for$^S$ & 1200 \\
-for$^{S2}$ & 1050 \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\subsection*{A4.2 Absorption (after 3 h chase)}
-
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-Genotype & Absorption (fmol glucose\,larva$^{-1}$) \\
-\midrule
-for$^R$ & 309.68 \\
-for$^S$ & 193.55 \\
-for$^{S2}$ & 182.49 \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-These values were digitized from Fig.~3B and are reported in the original paper only graphically.
-
-\section*{A5. Conversion to C-moles and energy}
-
-We use
-\begin{itemize}
-  \item glucose: $n_C = 6$,
-  \item $1\,\mathrm{fmol} = 10^{-15}\,\mathrm{mol}$.
-\end{itemize}
-
-For a value $B$ (fmol glucose per larva), the carbon amount and energy are
-\begin{align}
-  n_C &= 6 B\times10^{-15}\quad [\mathrm{C\text{-}mol}],\\
-  E &= \mu_{\mathrm{carb}}\, n_C \quad [\mathrm{J}].
-\end{align}
-
-Using the digitized absorption values, we obtain
+\section*{A4. Digitized intake, retention, and efficiency}
 \begin{center}
 \begin{tabular}{llll}
 \toprule
-Genotype & Absorption (fmol) & $n_C$ (C-mol\,larva$^{-1}$) & Energy retained (J\,larva$^{-1}$) \\
+Genotype & Intake (fmol\,larva$^{-1}$) & Retention (fmol\,larva$^{-1}$) & $\eta_{\mathrm{abs}}$ \\
 \midrule
-for$^R$ & 309.68 & $1.86\times10^{-12}$ & $8.70\times10^{-7}$ \\
-for$^S$ & 193.55 & $1.16\times10^{-12}$ & $5.43\times10^{-7}$ \\
+for$^R$    & 600  & 309.68 & 0.52 \\
+for$^S$    & 1200 & 193.55 & 0.16 \\
+for$^{S2}$ & 1050 & 182.49 & 0.17 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These values reproduce the qualitative result reported by Kaun et al. (2007): rovers retain roughly half of ingested tracer, whereas sitters retain about one-sixth.
+
+\section*{A5. Conversion to C-moles and energy (tracer and yeast-proxy)}
+For carbohydrates (glucose/fructose) we use the chemical potential
+\begin{equation}
+  \mu_{\mathrm{carb}} = 4.68\times10^{5}\,\mathrm{J\,C\text{-}mol^{-1}}.
+\end{equation}
+With $n_C=6$ and $1\,\mathrm{fmol}=10^{-15}\,\mathrm{mol}$, a value $B$ (fmol glucose per larva) converts to
+\begin{align}
+  n_{C,\mathrm{tr}} &= 6B\times10^{-15}\quad [\mathrm{C\text{-}mol}],\\
+  E_{\mathrm{tr}} &= \mu_{\mathrm{carb}}\,n_{C,\mathrm{tr}}\quad [\mathrm{J}].
+\end{align}
+
+Using the retention values above:
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Genotype & Retention (fmol) & $n_{C,\mathrm{tr}}$ (C-mol\,larva$^{-1}$) & $E_{\mathrm{tr}}$ (J\,larva$^{-1}$) \\
+\midrule
+for$^R$    & 309.68 & $1.86\times10^{-12}$ & $8.70\times10^{-7}$ \\
+for$^S$    & 193.55 & $1.16\times10^{-12}$ & $5.43\times10^{-7}$ \\
 for$^{S2}$ & 182.49 & $1.09\times10^{-12}$ & $5.12\times10^{-7}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\section*{A6. Average fluxes (DEB-style interpretation}
-
-Taking the 15\,min feeding window as
+These energies are tracer-linked and are negligible compared to the yeast-paste energy budget. To connect tracer retention to yeast energetics, we introduce a mapping factor
 \begin{equation}
-  \Delta t_{\mathrm{feed}} = 15\,\mathrm{min} = 0.0104167\,\mathrm{d},
+  \phi_Y \equiv \frac{n_{C,\mathrm{yeast\text{-}eq}}}{n_{C,\mathrm{tr}}},
 \end{equation}
-we define the average ingestion flux of glucose-derived carbon as
+so that
 \begin{equation}
-  \dot J_X^{(15)} = \frac{n_{C,\mathrm{intake}}}{\Delta t_{\mathrm{feed}}}\quad [\mathrm{C\text{-}mol\,d^{-1}}],
-\end{equation}
-while the average net absorbed flux is
-\begin{equation}
-  \dot J_{\mathrm{abs}}^{(15)} = \frac{n_{C,\mathrm{abs}}}{\Delta t_{\mathrm{feed}}}.
-\end{equation}
-The corresponding energy flux is
-\begin{equation}
-  \dot p = \mu_{\mathrm{carb}}\,\dot J.
+  E_{Y,\mathrm{eq}} = \mu_Y\,\phi_Y\,n_{C,\mathrm{tr}}.
 \end{equation}
 
-Numerically this yields
+If we adopt the working proxy $\phi_Y=1$ and $\mu_Y\approx\mu_{\mathrm{carb}}$, the yeast-equivalent retained carbon and energy are:
 \begin{center}
-\begin{tabular}{lllll}
+\begin{tabular}{lll}
 \toprule
-Genotype & $\dot J_X^{(15)}$ (C-mol\,d$^{-1}$) & $\dot p_X^{(15)}$ (J\,d$^{-1}$) & $\dot J_{\mathrm{abs}}^{(15)}$ (C-mol\,d$^{-1}$) & $\dot p_{\mathrm{abs}}^{(15)}$ (J\,d$^{-1}$) \\
+Genotype & $n_{C,\mathrm{yeast\text{-}eq}}$ (C-mol\,larva$^{-1}$) & $E_{Y,\mathrm{eq}}$ (J\,larva$^{-1}$) \\
 \midrule
-for$^R$ & $3.46\times10^{-10}$ & $1.62\times10^{-4}$ & $1.78\times10^{-10}$ & $8.35\times10^{-5}$ \\
-for$^S$ & $6.91\times10^{-10}$ & $3.23\times10^{-4}$ & $1.11\times10^{-10}$ & $5.22\times10^{-5}$ \\
-for$^{S2}$ & $6.05\times10^{-10}$ & $2.83\times10^{-4}$ & $1.05\times10^{-10}$ & $4.92\times10^{-5}$ \\
+for$^R$    & $1.86\times10^{-12}$ & $8.70\times10^{-7}$ \\
+for$^S$    & $1.16\times10^{-12}$ & $5.43\times10^{-7}$ \\
+for$^{S2}$ & $1.09\times10^{-12}$ & $5.12\times10^{-7}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\section*{A7. Absorption efficiency proxy}
+Otherwise, values scale by $(\mu_Y/\mu_{\mathrm{carb}})\phi_Y$.
 
-A robust, dimensionless quantity summarising the tracer assay is the absorption (retention) fraction
+\section*{A6. DEB-consistent interpretation}
+We distinguish food density $X$ (C-mol\,cm$^{-3}$), chemical potential $\mu_X$ (J\,C-mol$^{-1}$), and the derived environmental energy density $\varepsilon_X=\mu_X X$ (J\,cm$^{-3}$). Only $X$ enters the functional response; $\varepsilon_X$ is a derived convenience when diets are specified by mass or molarity.
+
+Assumptions used to map the tracer measurements into DEB parameters are:
+
+\begin{enumerate}
+  \item Retained tracer is treated as assimilated product in the measured pathway (post-ingestive retention $\rightarrow$ effective assimilation for carbohydrates).
+  \item The genotype ranking from carbohydrate retention is used as a proxy for a unified effective assimilation efficiency applied to the yeast-paste diet.
+  \item Tracer intake/retention is mapped to yeast intake/retention via a genotype-invariant proportionality factor $\phi_Y$ (defined above), because yeast-labeled measurements are not available.
+\end{enumerate}
+
+In DEB notation, the functional response must be computed explicitly,
 \begin{equation}
-  \eta_{\mathrm{abs}} = \frac{\text{Absorption}}{\text{Intake}}.
+  f = \frac{X}{X+K},
 \end{equation}
-Using the digitized values gives
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-Genotype & $\eta_{\mathrm{abs}}$ \\
-\midrule
-for$^R$ & 0.516 \\
-for$^S$ & 0.161 \\
-for$^{S2}$ & 0.174 \\
-\bottomrule
-\end{tabular}
-\end{center}
+so $f$ is not set a priori from ``high food'' arguments. The half-saturation coefficient can be written as
+\begin{equation}
+  K = \frac{\{\dot J_{Xm}\}}{\{\dot F_m\}} = \frac{\{\dot p_{Am}\}}{\kappa_X\,\mu_X\,\{\dot F_m\}},
+\end{equation}
+with $\{\dot p_{Am}\}=\kappa_X\,\mu_X\,\{\dot J_{Xm}\}$. If the maximum ingestion rate $\{\dot J_{Xm}\}$ (or $\{\dot p_{Xm}\}$) is identical across genotypes, then differences in effective assimilation efficiency $\kappa_X$ imply differences in $K$:
+\begin{equation}
+  \frac{K_i}{K_j} = \frac{\kappa_{X,j}}{\kappa_{X,i}}.
+\end{equation}
 
-This quantity captures post-ingestive carbohydrate retention efficiency and can be used in DEB-inspired models as a genotype-specific modifier of effective assimilation for carbohydrates, without reinterpreting it as total reserve assimilation.
-
-\section*{A8. DEB-consistent placement}
-
-In DEB terms, the main points are:
-\begin{itemize}
-  \item Diet context: high food density (yeast paste) implies $f\approx 1$ for total food.
-  \item The tracer informs pathway-specific processing (carbohydrate), not overall feeding capacity.
-  \item The data constrain relative differences between genotypes, not absolute $\dot p_{Am}$ or $K$.
-\end{itemize}
-
-A DEB-consistent usage is to treat $\eta_{\mathrm{abs}}$ as a proxy for a carbohydrate-specific effective assimilation factor, while keeping total assimilation capacity and reserve dynamics anchored by other lines of evidence.
+Therefore the tracer data constrain relative genotype differences in effective assimilation (through $\eta_{\mathrm{abs}}$ and the mapping assumptions), while absolute energetic scaling is anchored by the yeast-paste diet reconstruction.
 
 \end{document}

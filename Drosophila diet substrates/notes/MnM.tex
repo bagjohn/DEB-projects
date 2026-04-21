@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\title{Materials and Methods: Tracer-Based Intake and Absorption (Kaun et al., 2007)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Tracer assay (source data)}
+Kaun et al. (2007) measured glucose intake and absorption in mid-third instar larvae (96\,$\pm$\,2\,h post-hatch). Larvae were placed in groups of 70 into 9\,cm$\times$1\,mm circular wells containing dead yeast paste (2:1 water:yeast, w/w; autoclaved 20\,min) mixed with 0.08\% Brilliant Blue R dye and $2\,\mu\mathrm{Ci\,ml^{-1}}$ $^{14}$C-6-glucose (specific activity $58\,\mu\mathrm{Ci\,mmol^{-1}}$). After 15\,min of feeding, larvae were transferred to unlabeled medium for 3\,h to clear gut contents. Groups of ten larvae were then frozen and radioactivity was quantified by scintillation counting. The paper reports intake and retention (post-clearing) as fmol $^{14}$C-glucose per larva (Fig.~3B).
+
+\section*{Digitization of published plots}
+Fig.~3B reports intake and retention graphically; therefore, the numeric values used here were digitized from the plots and should be treated as approximate. The retention efficiency is computed as
+\begin{equation}
+  \eta_{\mathrm{abs}} = \frac{\text{Retention}}{\text{Intake}}.
+\end{equation}
+
+\section*{Conversion to C-moles and energy}
+For glucose, $n_C=6$ and $1\,\mathrm{fmol}=10^{-15}\,\mathrm{mol}$. We use the carbohydrate chemical potential
+\begin{equation}
+  \mu_{\mathrm{carb}} = 4.68\times10^{5}\,\mathrm{J\,C\text{-}mol^{-1}}.
+\end{equation}
+Thus, for a measured value $B$ (fmol glucose per larva),
+\begin{align}
+  n_{C,\mathrm{tr}} &= 6B\times10^{-15}\quad [\mathrm{C\text{-}mol}],\\
+  E_{\mathrm{tr}} &= \mu_{\mathrm{carb}}\,n_{C,\mathrm{tr}}\quad [\mathrm{J}].
+\end{align}
+
+\section*{Use in DEB-based models}
+The $^{14}$C-glucose tracer is treated as energetically negligible because its mass/volume is not reported. Yeast paste provides the energetic substrate, with energy density taken from \texttt{diets\_kaun\_2007.tex} (Diet 2: Yeast paste). Tracer retention is used only to infer relative, genotype-specific modifiers of effective assimilation. To map tracer retention to yeast energetics, we define a proportionality factor
+\begin{equation}
+  \phi_Y \equiv \frac{n_{C,\mathrm{yeast\text{-}eq}}}{n_{C,\mathrm{tr}}},
+\end{equation}
+so that yeast-equivalent retained energy is
+\begin{equation}
+  E_{Y,\mathrm{eq}} = \mu_Y\,\phi_Y\,n_{C,\mathrm{tr}}.
+\end{equation}
+Assumptions used are: (i) retained tracer is treated as assimilated product for carbohydrates; (ii) genotype ranking from carbohydrate retention is used as a proxy for a unified effective assimilation efficiency applied to yeast paste; and (iii) the tracer-to-yeast proportionality factor $\phi_Y$ is genotype invariant.
+
+\end{document}

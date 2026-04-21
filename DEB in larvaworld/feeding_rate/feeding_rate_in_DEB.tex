@@ -14,14 +14,14 @@
 
 \section{Goal}
 
-This document explains how to derive a \emph{feeding rate} $f_{\text{feed}}$ (number of feeding motions per day) step-by-step from a Dynamic Energy Budget (DEB) model, given:
+This document explains how to derive a \emph{feeding rate} $\dot N_{\text{bite}}$ (number of feeding motions per day) step-by-step from a Dynamic Energy Budget (DEB) model, given:
 \begin{itemize}
   \item A species-specific parameter set ($\kappa_X$, $\{\dot{p}_{Am}\}$)
   \item Environmental food availability ($X$, $\mu_X$)
   \item Body size ($L$, $V$)
 \end{itemize}
 
-It is then the task of the behavioural control system to allocate these feeding motions within the day, subject to constraints such as bouts of repetitive feeding motions and pauses. In practice, feeding can be described as an oscillatory process with a (possibly time-varying) instantaneous frequency that integrates over 24 h to the total number $f_{\text{feed}}$.
+It is then the task of the behavioural control system to allocate these feeding motions within the day, subject to constraints such as bouts of repetitive feeding motions and pauses. In practice, feeding can be described as an oscillatory process with a (possibly time-varying) instantaneous frequency that integrates over 24 h to the total number $\dot N_{\text{bite}}$.
 
 Core parameters, state variables, and environmental quantities are listed in Appendix~\ref{app:params}.
 
@@ -114,7 +114,7 @@ Unit check for Eq.~(12):
 
 We define the feeding motion rate (feeding motions per unit time) as consumed food-volume flux divided by the volume per motion:
 \begin{equation}
-  f_{\text{feed}} = \dot N_{bite} = \frac{\dot V_X}{V_{\text{bite}}}\tag{13}
+  \dot N_{\text{bite}} = \frac{\dot V_X}{V_{\text{bite}}}\tag{13}
 \end{equation}
 
 Two alternative assumptions for $V_{\text{bite}}$ are commonly considered in applications (to be decided empirically).
@@ -126,19 +126,19 @@ Two alternative assumptions for $V_{\text{bite}}$ are commonly considered in app
 
 Combining Eqs.~(13)--(14):
 \begin{equation}
-  f_{\text{feed}} = \frac{\dot V_X}{\kappa_{\text{bite},V}\,V} = \frac{\dot V_X}{\kappa_{\text{bite},V}\,L^3}\tag{15}
+  \dot N_{\text{bite}} = \frac{\dot V_X}{\kappa_{\text{bite},V}\,V} = \frac{\dot V_X}{\kappa_{\text{bite},V}\,L^3}\tag{15}
 \end{equation}
 
 Substituting $\dot V_X$ from Eq.~(12) gives an explicit form in terms of $\{\dot p_{Am}\}$ and $X$:
 \begin{equation}
-  f_{\text{feed}}
+  \dot N_{\text{bite}}
   = \frac{1}{\kappa_{\text{bite},V}\,L^3}\,\frac{\{\dot p_{Am}\}\,L^2}{\kappa_X\mu_X X + \frac{\{\dot p_{Am}\}}{\{\dot F_m\}}}
   = \frac{\{\dot p_{Am}\}}{\kappa_{\text{bite},V}\,L\left(\kappa_X\mu_X X + \frac{\{\dot p_{Am}\}}{\{\dot F_m\}}\right)}\tag{16}
 \end{equation}
 
 Unit check for Eq.~(16):
 \begin{equation*}
-  [f_{\text{feed}}] = \frac{[\dot V_X]}{[V_{\text{bite}}]} = \frac{\text{volume}\,\text{time}^{-1}}{[\kappa_{\text{bite},V}]\,[L^3]} = \frac{\text{volume}\,\text{time}^{-1}}{(1)\,(\text{volume})} = \text{time}^{-1}
+  [\dot N_{\text{bite}}] = \frac{[\dot V_X]}{[V_{\text{bite}}]} = \frac{\text{volume}\,\text{time}^{-1}}{[\kappa_{\text{bite},V}]\,[L^3]} = \frac{\text{volume}\,\text{time}^{-1}}{(1)\,(\text{volume})} = \text{time}^{-1}
 \end{equation*}
 
 \paragraph{Alternative B (area-proportional bite).} Each feeding motion ingests a volume proportional to $L^2$:
@@ -150,18 +150,18 @@ Here $\kappa_{\text{bite},A}$ has units of length so that $V_{\text{bite}}$ has 
 
 Combining Eqs.~(13) and (17):
 \begin{equation}
-  f_{\text{feed}} = \frac{\dot V_X}{\kappa_{\text{bite},A}\,L^2}\tag{18}
+  \dot N_{\text{bite}} = \frac{\dot V_X}{\kappa_{\text{bite},A}\,L^2}\tag{18}
 \end{equation}
 
 Substituting $\dot V_X$ from Eq.~(12) yields a size-cancelled form:
 \begin{equation}
-  f_{\text{feed}}
+  \dot N_{\text{bite}}
   = \frac{1}{\kappa_{\text{bite},A}}\,\frac{\{\dot p_{Am}\}}{\kappa_X\mu_X X + \frac{\{\dot p_{Am}\}}{\{\dot F_m\}}}\tag{19}
 \end{equation}
 
 Unit check for Eq.~(19):
 \begin{equation*}
-  [f_{\text{feed}}] = \frac{[\dot V_X]}{[V_{\text{bite}}]} = \frac{\text{volume}\,\text{time}^{-1}}{[\kappa_{\text{bite},A}]\,[L^2]} = \frac{\text{volume}\,\text{time}^{-1}}{(\text{length})\,(\text{area})} = \frac{\text{volume}\,\text{time}^{-1}}{\text{volume}} = \text{time}^{-1}
+  [\dot N_{\text{bite}}] = \frac{[\dot V_X]}{[V_{\text{bite}}]} = \frac{\text{volume}\,\text{time}^{-1}}{[\kappa_{\text{bite},A}]\,[L^2]} = \frac{\text{volume}\,\text{time}^{-1}}{(\text{length})\,(\text{area})} = \frac{\text{volume}\,\text{time}^{-1}}{\text{volume}} = \text{time}^{-1}
 \end{equation*}
 
 \appendix
@@ -218,7 +218,7 @@ Unit check for Eq.~(19):
   $\dot{p}_X$ & food energy flux & energy\,time$^{-1}$ & $\dot{p}_A = \kappa_X\,\dot{p}_X$ \\
   $\dot{V}_X$ & food volume flux & volume\,time$^{-1}$ & $\dot{V}_X = \dot{p}_A/(\kappa_X\,\mu_X X)$ \\
   $V_{\text{bite}}$ & volume per feeding motion & volume & $V_{\text{bite}} = \kappa_{\text{bite},V}\,V$ or $\kappa_{\text{bite},A}\,L^2$ \\
-  $f_{\text{feed}}$ & feeding motions per time & time$^{-1}$ & $f_{\text{feed}} = \dot{V}_X/V_{\text{bite}}$ \\
+  $\dot N_{\text{bite}}$ & feeding motions per time & time$^{-1}$ & $\dot N_{\text{bite}} = \dot{V}_X/V_{\text{bite}}$ \\
   \hline
 \end{tabular}
 \end{center}
@@ -332,16 +332,16 @@ Somatic maintenance power is written using the volume-specific maintenance rate 
 
 \section{Practical note -- measuring $\kappa_{\text{bite}}$}
 
-In future experiments, the bite parameters can be estimated by combining measurements of body size, food volume flux $\dot V_X$, and feeding frequency $f_{\text{feed}}$.
+In future experiments, the bite parameters can be estimated by combining measurements of body size, food volume flux $\dot V_X$, and feeding frequency $\dot N_{\text{bite}}$.
 
 For Alternative A (Eq.~14):
 \begin{equation}
-  \kappa_{\text{bite},V} = \frac{\dot V_X}{f_{\text{feed}}\,V}
+  \kappa_{\text{bite},V} = \frac{\dot V_X}{\dot N_{\text{bite}}\,V}
 \end{equation}
 
 For Alternative B (Eq.~17):
 \begin{equation}
-  \kappa_{\text{bite},A} = \frac{\dot V_X}{f_{\text{feed}}\,L^2}
+  \kappa_{\text{bite},A} = \frac{\dot V_X}{\dot N_{\text{bite}}\,L^2}
 \end{equation}
 
 At present we treat $\kappa_{\text{bite},V}$ or $\kappa_{\text{bite},A}$ as a species- and instar-specific quantity to be quantified in dedicated feeding trials.

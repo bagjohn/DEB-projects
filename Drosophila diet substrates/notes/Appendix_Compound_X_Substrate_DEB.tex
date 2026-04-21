@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage[hidelinks]{hyperref}
+
+\title{Appendix: Extraction of the energetic value of composite diets}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Theory}
+
+\subsection*{DEB Formulation for a single compound X in a substrate}
+
+In DEB theory, compounds are quantified on a carbon-molar basis to ensure consistency between chemical composition, thermodynamic potential, and energetic bookkeeping. For a compound $X$ with empirical formula $\mathrm{C}_{n_C}\mathrm{H}_{n_H}\mathrm{O}_{n_O}\mathrm{N}_{n_N}$, the carbon content defines the fundamental counting unit: one C-mol (carbon mole) is the amount of compound that contains one mole of carbon atoms. Thus, $1\,\mathrm{mol}$ of compound contains $n_C$ C-moles. All concentrations refer to the substrate in which compound $X$ is present.
+
+Following DEB convention, the carbon-molar concentration is denoted by $X$, while the corresponding mass concentration of compound $X$ in the substrate is denoted by $c_X$ ($\mathrm{g\,cm^{-3}}$). The relations between chemical composition, concentration, chemical potential, and resulting energy density due exclusively to compound $X$ are summarized in Table~\ref{tab:single-compound}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}X}
+\toprule
+Symbol & Description & Unit & Defining equation \\
+\midrule
+$w$ & Molar mass & $\mathrm{g\,mol^{-1}}$ & $w = 12 n_C + 1 n_H + 16 n_O + 14 n_N$ \\
+$w_C$ & Molar mass per C-mol & $\mathrm{g\,C\text{-}mol^{-1}}$ & $w_C = \dfrac{w}{n_C}$ \\
+$c_X$ & Mass concentration in the substrate & $\mathrm{g\,cm^{-3}}$ & --- \\
+$X$ & Carbon-molar concentration in the substrate & $\mathrm{C\text{-}mol\,cm^{-3}}$ & $X = \dfrac{c_X}{w_C}$ \\
+$\mu_X$ & Chemical potential (per C-mol) & $\mathrm{J\,C\text{-}mol^{-1}}$ & --- \\
+$e_X$ & Energy per gram & $\mathrm{J\,g^{-1}}$ & $e_X = \dfrac{\mu_X}{w_C}$ \\
+$\varepsilon_X$ & Energy density in the substrate & $\mathrm{J\,cm^{-3}}$ & $\varepsilon_X = \mu_X X = e_X c_X$ \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\caption{Definitions and relations for compound $X$ in a substrate under the carbon-molar formulation of DEB theory. Energy densities refer exclusively to the energetic contribution of compound $X$.}
+\label{tab:single-compound}
+\end{table}
+
+\subsection*{Major Polymer Classes in DEB Theory}
+
+In DEB theory, structural biomass and reserves are represented as mixtures of three principal polymer groups: carbohydrates (polysaccharides), lipids, and proteins. Their average empirical compositions and energetic properties are given in Table 4.2 of the DEB textbook (combustion reference, pH 7, 25 $^\circ$C). The empirical formula is expressed on a per C-mol basis, i.e. $n_C=1$.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X}
+\toprule
+Compound & Empirical formula $\mathrm{C}\mathrm{H}_{n_H}\mathrm{O}_{n_O}\mathrm{N}_{n_N}$ & Molar mass per C-mol $w_{C,X}$ ($\mathrm{g\,C\text{-}mol^{-1}}$) & Chemical potential $\mu_X$ ($\mathrm{kJ\,C\text{-}mol^{-1}}$) & Energy per gram $e_X$ ($\mathrm{kJ\,g^{-1}}$) \\
+\midrule
+Carbohydrates (polysaccharides) & $\mathrm{CH_2O}$ & 30.00 & 516 & 17.2 \\
+Lipids & $\mathrm{CH_{1.92}O_{0.12}}$ & 15.84 & 616 & 38.9 \\
+Proteins & $\mathrm{CH_{1.61}O_{0.33}N_{0.28}}$ & 22.81 & 401 & 17.6 \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\caption{Average empirical composition and energetic properties of the three principal polymer classes in DEB theory (combustion reference frame).}
+\label{tab:polymer-classes}
+\end{table}
+
+\subsection*{Frequently used dietary compounds in \textit{Drosophila} media}
+
+Edible components of \textit{Drosophila} diet media are characterized by their empirical formula and their chemical potential $\mu_X$, from which their C-molar mass $w_{C,X}$ and energetic variables $e_X,\varepsilon_X$ can be derived (see Table~\ref{tab:single-compound}). Non-edible structural components of the substrate (e.g., agar) are excluded since they do not contribute metabolizable energy. The most commonly used energetically meaningful compounds are shown in Table~\ref{tab:drosophila-compounds}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X}
+\toprule
+Compound & Empirical formula $\mathrm{C}_{n_C}\mathrm{H}_{n_H}\mathrm{O}_{n_O}\mathrm{N}_{n_N}$ & Molar mass per C-mol $w_{C,X}$ ($\mathrm{g\,C\text{-}mol^{-1}}$) & Chemical potential $\mu_X$ ($\mathrm{kJ\,C\text{-}mol^{-1}}$) & Energy per gram $e_X$ ($\mathrm{kJ\,g^{-1}}$) \\
+\midrule
+Glucose / Fructose / Dextrose & $\mathrm{C}_6\mathrm{H}_{12}\mathrm{O}_6$ & 30.03 & 468 & 15.6 \\
+Sucrose & $\mathrm{C}_{12}\mathrm{H}_{22}\mathrm{O}_{11}$ & 28.53 & 471 & 16.5 \\
+Starch (repeat unit) & $(\mathrm{C}_6\mathrm{H}_{10}\mathrm{O}_5)_n$ & 27.02 & 459 & 17.0 \\
+Brewer's yeast (dry) & $\approx \mathrm{C}_{4.5}\mathrm{H}_{7.3}\mathrm{O}_{2.2}\mathrm{N}_{0.8}$ & $\approx 25.11$ & 478 & 19.0 \\
+Propionic acid & $\mathrm{C}_3\mathrm{H}_6\mathrm{O}_2$ & 24.69 & 513 & 20.8 \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\caption{Chemical composition and energetic properties of edible compounds used in \textit{Drosophila} diet media.}
+\label{tab:drosophila-compounds}
+\end{table}
+
+\subsection*{Computation of energy density of a composite diet}
+
+In practice, for a batch of diet $X$ of volume $V$ (cm$^3$) containing assimilable ingredients $i$, recipe information can be written in different but equivalent forms:
+\begin{itemize}
+  \item If ingredient masses $m_i$ (g) are known, the mass concentration of ingredient $i$ is
+  \begin{equation}
+    c_i = \frac{m_i}{V}\quad [\mathrm{g\,cm^{-3}}].
+  \end{equation}
+  \item If ingredient $i$ is given as a mixture fraction (e.g., yeast paste), with mass fraction $w_i$ in an aqueous/jelly medium, then
+  \begin{equation*}
+    c_i = w_i\,\rho_{\text{medium}}.
+  \end{equation*}
+  We assume for slurry-like aqueous or jelly media that $\rho_{\text{medium}}\approx 1\,\mathrm{g\,cm^{-3}}$.
+  \item If ingredient $i$ is given as $w/V$ (e.g., glucose--agarose), then $c_i$ follows directly from Eq.~(1), i.e.
+  \begin{equation*}
+    c_i = \frac{m_i}{V}
+    \quad\text{(for example, }10\%\,w/v = 10\,\mathrm{g}/100\,\mathrm{cm^3} = 0.10\,\mathrm{g\,cm^{-3}}\text{).}
+  \end{equation*}
+\end{itemize}
+
+
+
+Once we have the recipe of the diet, with known values of $c_i$, $e_i$, and $w_{C,i}$ for all ingredients (with $e_i=\mu_i/w_{C,i}$), we can compute the composite energy density, DEB food density, and effective chemical potential as:
+\begin{equation}
+  \varepsilon_X = \sum_i c_i e_i\quad [\mathrm{J\,cm^{-3}}].
+\end{equation}
+\begin{equation}
+  X = \sum_i \frac{c_i}{w_{C,i}}\quad [\mathrm{C\text{-}mol\,cm^{-3}}].
+\end{equation}
+\begin{equation}
+  \mu_X = \frac{\varepsilon_X}{X}\quad [\mathrm{J\,C\text{-}mol^{-1}}].
+\end{equation}
+
+
+\section*{Example diets from the literature}
+
+Below we apply the above theory to extract DEB food descriptors for the diets used in the literature. 
+For every study, for each diet, we first compute the recipe in mass concentrations $c_i$ (g~cm$^{-3}$) of the assimilable ingredients.
+The molar mass and energy per gram for each ingedient are derived from the compound data in Table~\ref{tab:polymer-classes} and Table~\ref{tab:drosophila-compounds}. 
+Then we compute the energy density $\varepsilon_X$, food density $X$, and chemical potential $\mu_X$ for the composite diet using Eq.~(1), Eq.~(2), and Eq.~(3). 
+
+\section*{Study I : Kaun et al. (2007)}
+
+In Kaun et al.\ (2007), larvae were reared on a standard culture medium 
+containing yeast and sucrose as the principal nutritive components 
+(together with agar and mineral salts), and food-quality treatments were 
+generated by proportionally reducing both yeast and sucrose to 75\%, 50\%, 
+25\%, or 15\% of this formulation (Materials and methods, p.~2). This medium is therefore a multi-compound nutritive substrate. 
+
+For intake assays, larvae were transferred to yeast paste (2:1 water:yeast) containing dye or radiolabeled substrates. In the $^{14}$C-glucose assays, labelled glucose is treated only as a tracer and is excluded from DEB energy accounting; thus, in energetic terms, yeast paste is a single-compound diet (yeast biomass). The yeast paste is prepared as 2:1 water:yeast (w/w), so the yeast mass fraction is $w_Y=1/3$. Assuming a slurry density $\rho_{\text{paste}}\approx 1\,\mathrm{g\,cm^{-3}}$, the yeast mass concentration is $c_Y = w_Y\,\rho_{\text{paste}} = 0.333\,\mathrm{g\,cm^{-3}}$.
+
+The glucose--agarose and fructose--agarose substrates are also single-compound diets in energetic terms, because each contains one nutritive compound dissolved in agarose. For the sugar--agarose diets, the glucose--agarose recipe (10\% glucose w/v, 2.3\% agarose) gives $c_G=0.10\,\mathrm{g\,cm^{-3}}$, while the fructose--agarose recipe (2 mol\,L$^{-1}$ fructose, 1\% agarose) gives
+\begin{equation*}
+  c_F = \frac{2\times 180.16}{1000} = 0.36032\,\mathrm{g\,cm^{-3}}.
+\end{equation*}
+
+Only the standard rearing medium is multi-compound in this study.
+
+
+
+The assimilable recipe concentrations for all diets are summarized in Table~\ref{tab:study1-recipes}.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}p{2.2cm} >{\centering\arraybackslash}X}
+\toprule
+Diet & Yeast & Sucrose & Glucose & Fructose \\
+\midrule
+Standard (100\%) & 0.0500 & 0.1000 & 0 & 0 \\
+Standard (quality $q$) & $q\times 0.0500$ & $q\times 0.1000$ & 0 & 0 \\
+Yeast paste & 0.3330 & 0 & 0 & 0 \\
+Glucose--agarose & 0 & 0 & 0.1000 & 0 \\
+Fructose--agarose & 0 & 0 & 0 & 0.3603 \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\caption{Assimilable-compound recipes for diets in Kaun et al. (2007), expressed as mass concentrations $c_i$ in g~cm$^{-3}$.}
+\label{tab:study1-recipes}
+\end{table}
+
+We now apply the formulas to these diet recipes and compute the energetic variables for each diet; for diluted food with quality factor $q$ (e.g. 0.75, 0.50, 0.25, 0.15), which scales yeast and sucrose together, $\varepsilon(q)=q\,\varepsilon_{\text{standard}}$ and $X(q)=q\,X_{\text{standard}}$. The results are summarized in Table~\ref{tab:summary}.
+
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X}
+\toprule
+Diet & Energy density, $\varepsilon_X$ (J\,cm$^{-3}$) & Food density, $X$ (C-mol\,cm$^{-3}$) & Chemical potential, $\mu_X$ (J\,C-mol$^{-1}$) & Notes \\
+\midrule
+Standard (100\%) & $2.7\times10^{3}$ & $5.50\times10^{-3}$ & $4.91\times10^{5}$ & complete diet \\
+Standard (quality $q$) & $q\times 2.7\times10^{3}$ & $q\times 5.50\times10^{-3}$ & $4.91\times10^{5}$ & dilution series \\
+Yeast paste & $7.0\times10^{3}$ & $1.33\times10^{-2}$ & $5.28\times10^{5}$ & high-quality \\
+Glucose--agarose & $1.56\times10^{3}$ & $3.33\times10^{-3}$ & $4.68\times10^{5}$ & carbon-only test \\
+Fructose--agarose & $5.62\times10^{3}$ & $1.20\times10^{-2}$ & $4.68\times10^{5}$ & carbon-only test \\
+\bottomrule
+\end{tabularx}
+\normalsize
+\caption{Energetic variables for diets in Kaun et al. (2007), computed from the assimilable-compound recipe concentrations in Table~\ref{tab:study1-recipes}.}
+\label{tab:summary}
+\end{table}
+
+\section*{Study II: Ormerod et al. (2017)}
+
+From Table~2 of Ormerod et al. (2017), wet percentages are treated as g~cm$^{-3}$ assuming bulk density $\approx 1$~g~cm$^{-3}$.
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.4]S[table-format=1.4]S[table-format=1.4]}
+    \toprule
+    Diet & {Protein} & {Fat} & {Carbohydrate} \\
+    \midrule
+    F424 & 0.0191 & 0.0012 & 0.2119 \\
+    JAZZ & 0.0080 & 0.0001 & 0.1701 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Assimilable-compound recipes for diets in Ormerod et al. (2017), expressed as mass concentrations $c_i$ in g~cm$^{-3}$.}
+\end{table}
+
+results
+
+\begin{table}[h]
+  \centering
+  \sisetup{table-number-alignment = center}
+  \begin{tabular}{lS[table-format=1.2e1]S[table-format=1.2e-2]S[table-format=1.2e5]}
+    \toprule
+    Diet & {$\varepsilon_X$ (J~cm$^{-3}$)} & {$X$ (C-mol~cm$^{-3}$)} & {$\mu_X$ (J~C-mol$^{-1}$)} \\
+    \midrule
+    \textbf{F424} & 4.03e3 & 7.98e-3 & 5.05e5 \\
+    \textbf{JAZZ} & 3.07e3 & 6.03e-3 & 5.09e5 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Absolute DEB food descriptors for the two diets.}
+\end{table}
+
+\section*{Study III: Ng’oma et al. (2019)}
+
+\end{document}

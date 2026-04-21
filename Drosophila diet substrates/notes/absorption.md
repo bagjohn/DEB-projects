@@ -138,18 +138,68 @@ A dimensionless and robust quantity is the **absorption fraction**:
 
 This fraction captures **post‑ingestive processing efficiency** for glucose‑derived carbon.
 
+### A5. Window-aware alternative assimilation efficiency (rate/flux based)
+
+To explicitly account for the different measurement windows, convert absolute amounts first to average fluxes:
+
+Feeding-window intake flux:
+\[
+\dot J_{X,\mathrm{feed}} = \frac{n_{C,\mathrm{intake}}}{\Delta t_{\mathrm{feed}}}
+\]
+
+Chase-window retained/absorbed flux:
+\[
+\dot J_{A,\mathrm{chase}} = \frac{n_{C,\mathrm{abs}}}{\Delta t_{\mathrm{chase}}}
+\]
+
+Define the alternative window-aware coefficient as the flux ratio:
+\[
+\boxed{\eta_{\mathrm{win}} = \frac{\dot J_{A,\mathrm{chase}}}{\dot J_{X,\mathrm{feed}}}}
+= \frac{n_{C,\mathrm{abs}}/\Delta t_{\mathrm{chase}}}{n_{C,\mathrm{intake}}/\Delta t_{\mathrm{feed}}}
+= \eta_{\mathrm{abs}}\,\frac{\Delta t_{\mathrm{feed}}}{\Delta t_{\mathrm{chase}}}
+\]
+
+Using:
+\[
+\Delta t_{\mathrm{feed}}=0.0104167\,\mathrm{d},\qquad
+\Delta t_{\mathrm{chase}}=0.125\,\mathrm{d}
+\]
+gives:
+\[
+\frac{\Delta t_{\mathrm{feed}}}{\Delta t_{\mathrm{chase}}}=0.0833336
+\]
+
+Therefore:
+
+| Genotype | \(\dot J_{X,\mathrm{feed}}\) (C-mol·d⁻¹) | \(\dot J_{A,\mathrm{chase}}\) (C-mol·d⁻¹) | \(\eta_{\mathrm{win}}\) |
+|---|---:|---:|---:|
+| forᴿ | \(3.46\times10^{-10}\) | \(1.49\times10^{-11}\) | 0.0430 |
+| forˢ | \(6.91\times10^{-10}\) | \(9.29\times10^{-12}\) | 0.0134 |
+| forˢ² | \(6.05\times10^{-10}\) | \(8.76\times10^{-12}\) | 0.0145 |
+
+So in this alternative formulation, the coefficient is still dimensionless, but it now explicitly incorporates that intake was measured over a short 15 min feeding window, while retained absorbed label was measured over a longer 3 h chase/absorption window.
+
 ---
 
 ## 8. DEB‑consistent interpretation
 
-- The assay was performed on **yeast paste**, i.e. **high food density** (\(f\approx1\)).
+- The assay was performed on **yeast paste** (energetically dominant substrate), while ¹⁴C-glucose is a pathway tracer.
+- If tracer mass/volume density is not reported, tracer energy is not introduced as an independent dietary energy input in DEB energetics.
 - ¹⁴C‑glucose traces **only carbohydrate pathways**.
 - Intake reflects **glucose‑specific ingestion**, not total feeding.
 - Absorption reflects **retained glucose‑derived carbon**, downstream of ingestion.
 
 ### Correct DEB placement
-- These data **do not constrain** \(K\) or total \(\dot p_{Am}\).
-- They **do constrain** genotype differences in **post‑ingestive uptake / retention**.
+- Functional response is computed, not assumed:
+\[
+f=\frac{X}{X+K}
+\]
+- With project notation:
+\[
+K = \frac{\{\dot J_{Xm}\}}{\{\dot F_m\}} = \frac{\{\dot p_{Am}\}}{\kappa_X\,\mu_X\,\{\dot F_m\}}
+\]
+- If maximum ingestion is similar across genotypes, differences in effective assimilation efficiency \(\kappa_X\) imply differences in \(K\).
+- These data constrain genotype differences in **post‑ingestive uptake / retention** and are used to define relative effective-assimilation modifiers.
 - A DEB‑consistent usage is to treat \(\eta_{\mathrm{abs}}\) as a proxy for a
   carbohydrate‑specific effective assimilation factor:
 \[

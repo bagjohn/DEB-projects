@@ -139,6 +139,11 @@ With yeast energy per mass \(e_Y = 21\times10^3\,\mathrm{J\,g^{-1}}\):
 Unit check:
 \(\mathrm{g\,cm^{-3}}\times\mathrm{J\,g^{-1}} = \mathrm{J\,cm^{-3}}\).
 
+### 4.3 Tracer interpretation in the Kaun absorption assay
+
+In the ¹⁴C-glucose absorption experiments, larvae feed on yeast paste and glucose is used as a tracer signal. For DEB energetics, the dominant substrate energy is therefore yeast paste (
+\(\varepsilon_{X,\text{yeast paste}}\) above). If tracer mass/volume density is not reported, tracer energy is not introduced as an independent dietary energy term; instead, tracer data constrain relative pathway-specific ingestion/retention differences between genotypes.
+
 ---
 
 ## 5. Diet 3 — Sugar–agarose substrates
@@ -217,6 +222,12 @@ with functional response:
 f = \frac{X}{K+X} = \frac{\varepsilon_X}{\varepsilon_K+\varepsilon_X},
 \qquad \varepsilon_K \equiv \mu_X K
 \]
+
+Hence $f$ must be computed from $X$ and $K$ (not fixed a priori from qualitative high-food arguments). In the DEB notation used across this project,
+\[
+K = \frac{\{\dot J_{Xm}\}}{\{\dot F_m\}} = \frac{\{\dot p_{Am}\}}{\kappa_X\,\mu_X\,\{\dot F_m\}}
+\]
+and genotype differences in effective assimilation efficiency $\kappa_X$ imply genotype differences in $K$ when maximum ingestion is otherwise constrained to be similar.
 
 Including rod shape correction:
 \[
